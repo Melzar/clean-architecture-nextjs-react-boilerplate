@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ./
+      target: development
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
