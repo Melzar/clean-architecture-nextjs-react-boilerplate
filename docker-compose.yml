@@ -1,13 +1,17 @@
 version: '3.8'
 services:
   app:
+    environment:
+      - "NEXT_WEBPACK_USE_POLLING=1"
     build:
-      context: ./
+      context: .
       target: development
       dockerfile: Dockerfile
+    restart: always
+    command: yarn dev
     volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+      - .:/src/app
+      - /src/app/node_modules
+      - /src/app/.next
     ports:
       - "3000:3000"
