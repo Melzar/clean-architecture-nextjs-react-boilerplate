@@ -15,3 +15,12 @@ services:
       - /src/app/.next
     ports:
       - "3000:3000"
+  mock-server:
+    build:
+      context: .
+      target: mock
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./clean-mock-server.json:/data:readonly
