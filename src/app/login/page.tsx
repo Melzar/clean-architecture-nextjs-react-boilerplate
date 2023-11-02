@@ -1,12 +1,11 @@
-import styles from 'app/login/page.module.scss'
+import styles from 'app/login/page.module.scss';
 
-const Login = () => {
+const Login = () => (
+  <main
+    className={`xl:container xl:mx-auto flex min-h-screen items-center justify-center p-24 ${styles.container}`}
+  >
+    <div className="flex items-center">Login</div>
+  </main>
+);
 
-    return (
-        <main className={`xl:container xl:mx-auto flex min-h-screen items-center justify-center p-24 ${styles.container}`}>
-            <div className={'flex items-center'}>Login</div>
-        </main>
-    )
-}
-
-export default Login
+export default Login;
