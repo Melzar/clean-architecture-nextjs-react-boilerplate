@@ -11,8 +11,8 @@ services:
     command: yarn dev
     volumes:
       - .:/src/app
-      - /src/app/node_modules
-      - /src/app/.next
+      - /node_modules
+      - /.next
     ports:
       - "3000:3000"
   mock-server:

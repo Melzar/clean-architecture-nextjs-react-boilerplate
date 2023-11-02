@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'src/ui/common/styles/colors.module';
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,6 +19,6 @@
 }
 
 body {
+  background-color: $black-pearl;
   color: rgb(var(--foreground-rgb));
-  background-color: #05051e;
 }
