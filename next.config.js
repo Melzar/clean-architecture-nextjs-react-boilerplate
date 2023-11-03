@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const path = require('path')
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
 
 const nextConfig = {
   sassOptions: {
@@ -12,8 +13,8 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

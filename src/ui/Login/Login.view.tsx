@@ -4,15 +4,18 @@ import styles from 'ui/Login/login.module.scss';
 import { useLogin } from 'ui/Login/login.hooks';
 
 export const LoginView = () => {
-  const { theme } = useLogin();
+  const { theme, authentication, onLoginClick } = useLogin();
 
   return (
     <main
-      className={`xl:container xl:mx-auto flex min-h-screen items-center justify-center p-24 ${
+      className={`xl:container xl:mx-auto flex min-h-screen flex-col  items-center justify-center p-24 ${
         styles[theme] || ''
       } ${styles.container}`}
     >
-      <div className="flex items-center">Login</div>
+      <button type="button" onClick={onLoginClick}>
+        Login
+      </button>
+      <span>{JSON.stringify(authentication)}</span>
     </main>
   );
 };

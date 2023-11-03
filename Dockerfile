@@ -22,4 +22,4 @@ EXPOSE 3001
 FROM base-mock as mock
 RUN npm install -g @mockoon/cli
 COPY . .
-CMD mockoon-cli start --data ./clean-mock-server.json --port 3001
+CMD mockoon-cli start --data ./mock-server.json --port 3001

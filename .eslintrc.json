@@ -22,6 +22,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
+    "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "import/extensions": "off",
     "import/order": [
@@ -39,7 +40,10 @@
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
+    "lines-between-class-members": "off"
   },
   "settings": {
     "import/resolver": {
