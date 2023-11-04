@@ -1,13 +1,13 @@
 import axios, { CreateAxiosDefaults } from 'axios';
 
-import { NetworkInterface } from 'data/network/common/config/NetworkInterface';
+import { INetwork } from 'data/network/common/config/network.interface';
 import {
   FetchFunction,
   FetchFunctionInput,
 } from 'data/network/rest/common/types/network.types';
 import { APP_NAME } from 'data/network/common/consts/network.consts';
 
-export const RestClient = (): NetworkInterface<FetchFunction> => ({
+export const RestClient = (): INetwork<FetchFunction> => ({
   client: async ({
     method,
     headers,

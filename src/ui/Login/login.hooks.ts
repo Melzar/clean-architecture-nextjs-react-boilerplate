@@ -1,10 +1,8 @@
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
 
-import { AuthenticationPresenter } from 'presentation/Application/Authentication/authentication.presenter';
 import { Authentication } from 'presentation/shared/Authentication/models/Authentication';
-
-const authenticationPresenter = AuthenticationPresenter();
+import { useLoginData } from 'ui/Login/login.data';
 
 type UseLoginHook = {
   authentication?: Authentication;
@@ -16,8 +14,10 @@ export const useLogin = (): UseLoginHook => {
   const { theme } = useTheme();
   const [authentication, setAuthentication] = useState<Authentication>();
 
+  const { authenticateUser } = useLoginData();
+
   const onLoginClick = async () => {
-    const result = await authenticationPresenter.authenticate({
+    const result = await authenticateUser({
       email: '',
       password: '',
     });

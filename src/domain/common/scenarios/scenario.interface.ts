@@ -1,3 +1,3 @@
-export interface ScenarioInterface<A, R> {
+export interface IScenario<A, R> {
   execute(...args: A[]): R;
 }

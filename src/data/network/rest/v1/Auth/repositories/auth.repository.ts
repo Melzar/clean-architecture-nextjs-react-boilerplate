@@ -1,15 +1,18 @@
-import { AuthenticationRepositoryInterface } from 'domain/Application/Authentication/repositories/AuthenticationRepositoryInterface';
+import { AuthenticationRepositoryInterface } from 'domain/Application/Authentication/repositories/authenticationRepository.interface';
 import { AuthenticateRepositoryRequest } from 'domain/Application/Authentication/repositories/requests/AuthenticateRepositoryRequest';
-import { ApiResponse } from 'data/network/rest/common/types/network.types';
+import {
+  ApiResponse,
+  FetchFunction,
+} from 'data/network/rest/common/types/network.types';
 import { AUTH_ENDPOINTS } from 'data/network/rest/v1/Auth/consts/AuthEndpoints';
 import { ApiPath } from 'data/network/rest/v1/common/utils/ApiPath';
 import { AuthRest } from 'data/network/rest/v1/Auth/models/Auth';
 import { authRestToAuthenticationDomain } from 'data/network/rest/shared/Auth/mappers/authRestToAuthenticationDomain';
-import { RestClient } from 'data/network/rest/common/config/RestClient';
+import { INetwork } from 'data/network/common/config/network.interface';
 
-export const AuthRepository = (
-  { client } = RestClient()
-): AuthenticationRepositoryInterface => ({
+export const AuthRepository = ({
+  client,
+}: INetwork<FetchFunction>): AuthenticationRepositoryInterface => ({
   authenticate: async ({
     username,
     password,

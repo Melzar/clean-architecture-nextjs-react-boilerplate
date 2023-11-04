@@ -1,3 +1,3 @@
-export interface UseCaseInterface<A, R> {
+export interface IUseCase<A, R> {
   execute(...args: A[]): R;
 }

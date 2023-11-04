@@ -43,7 +43,8 @@
     "react/function-component-definition": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
-    "lines-between-class-members": "off"
+    "lines-between-class-members": "off",
+    "@typescript-eslint/ban-types": "off"
   },
   "settings": {
     "import/resolver": {
