@@ -1,9 +1,6 @@
-export class Authentication {
-  public readonly id: string;
-  public readonly email: string;
-  public readonly fullName: string;
-  public readonly firstName: string;
-  constructor(input: Partial<Authentication>) {
-    Object.assign(this, input);
-  }
-}
+export type Authentication = {
+  readonly id: string;
+  readonly email: string;
+  readonly fullName: string;
+  readonly firstName: string;
+};

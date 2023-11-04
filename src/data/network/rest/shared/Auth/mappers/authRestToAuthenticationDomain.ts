@@ -8,11 +8,11 @@ export const authRestToAuthenticationDomain = ({
   token,
   email,
 }: AuthRest): Authentication => {
-  return new Authentication({
+  return {
     id,
     fullName: `${firstName} ${surname}`,
     firstName,
     token,
     email,
-  });
+  };
 };

@@ -1,4 +1,4 @@
-import { Authentication as AuthenticationUI } from 'presentation/shared/Authentication/models/Authentication';
+import { Authentication as AuthenticationView } from 'presentation/shared/Authentication/models/Authentication';
 import { Authentication } from 'domain/Application/Authentication/models/Authentication';
 
 export const authenticationDomainToAuthenticationView = ({
@@ -6,11 +6,11 @@ export const authenticationDomainToAuthenticationView = ({
   email,
   firstName,
   fullName,
-}: Authentication): AuthenticationUI => {
-  return new AuthenticationUI({
+}: Authentication): AuthenticationView => {
+  return {
     id,
     email,
     firstName,
     fullName,
-  });
+  };
 };

@@ -1,6 +1,8 @@
 import { Authentication } from 'domain/Application/Authentication/models/Authentication';
-import { AuthenticateRequest } from 'presentation/Application/Authentication/requests/AuthenticateRequest';
+import { AuthenticatePresenterRequest } from 'presentation/Application/Authentication/requests/AuthenticatePresenterRequest';
 
 export interface AuthenticationPresenterInterface {
-  authenticate: (request: AuthenticateRequest) => Promise<Authentication>;
+  authenticate: (
+    request: AuthenticatePresenterRequest
+  ) => Promise<Authentication>;
 }

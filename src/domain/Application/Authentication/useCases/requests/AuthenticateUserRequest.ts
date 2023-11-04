@@ -1,8 +1,4 @@
-export type AuthenticateUserRequestInput = {
+export type AuthenticateUserRequest = {
   readonly username: string;
   readonly password: string;
 };
-
-export class AuthenticateUserRequest {
-  constructor(public readonly input: AuthenticateUserRequestInput) {}
-}
