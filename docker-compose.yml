@@ -8,11 +8,11 @@ services:
       target: development
       dockerfile: Dockerfile
     restart: always
-    command: yarn dev
     volumes:
       - .:/src/app
       - /node_modules
       - /.next
+      - ./.docker.env.development:/src/app/.env.development:readonly
     ports:
       - "3000:3000"
   mock-server:

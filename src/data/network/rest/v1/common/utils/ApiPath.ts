@@ -1,2 +1,2 @@
 export const ApiPath = (resource: string) =>
-  `http://localhost:3001/api/v1/${resource}`;
+  `${process.env.API_URL}/api/v1/${resource}`;
