@@ -10,6 +10,7 @@ import { ThemeProvider } from 'ui/common/providers/theme.provider';
 import { THEME } from 'ui/common/consts/theme';
 
 import './globals.scss';
+import { AuthenticationProvider } from 'ui/common/providers/authentication.provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,18 +23,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme={THEME.DARK}
-          themes={[THEME.DARK, THEME.DARK]}
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TopHeader>
-            <TopNavigation />
-          </TopHeader>
-          {children}
-        </ThemeProvider>
+        <AuthenticationProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme={THEME.DARK}
+            themes={[THEME.DARK, THEME.DARK]}
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TopHeader>
+              <TopNavigation />
+            </TopHeader>
+            {children}
+          </ThemeProvider>
+        </AuthenticationProvider>
       </body>
     </html>
   );

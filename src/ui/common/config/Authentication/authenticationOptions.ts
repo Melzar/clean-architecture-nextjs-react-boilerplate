@@ -1,0 +1,63 @@
+import { AuthOptions, User } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+
+import { inject } from 'ui/common/utils/inject';
+import { IAuthenticationPresenter } from 'presentation/Application/Authentication/authenticationPresenter.interface';
+import { PresentationModuleSymbols } from 'presentation/PresentationModuleSymbols';
+
+const { authenticate } = inject<IAuthenticationPresenter>(
+  PresentationModuleSymbols.AUTHENTICATION_PRESENTER
+);
+
+export const AuthenticationOptions: AuthOptions = {
+  session: {
+    strategy: 'jwt',
+  },
+  providers: [
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'text', placeholder: 'jsmith' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials) {
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
+        };
+        const authentication = await authenticate({ email, password });
+
+        if (authentication) {
+          return authentication as object;
+        }
+        return null;
+      },
+    }),
+  ],
+  callbacks: {
+    jwt: async ({ token, user }) => {
+      if (user) {
+        return { ...token, role: (user as User).role, id: user.id };
+      }
+      return token;
+    },
+    session: async ({ session, token }) => {
+      return {
+        ...session,
+        ...(token
+          ? {
+              meta: {
+                email: token.email,
+                role: token.role,
+                id: token.id,
+              },
+              jwt: token,
+            }
+          : {}),
+      };
+    },
+  },
+  pages: {
+    signIn: '/login',
+  },
+};

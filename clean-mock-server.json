@@ -17,7 +17,7 @@
       "responses": [
         {
           "uuid": "5bc4c179-efb9-4212-bf88-426d95542da6",
-          "body": "{\n  \"id\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"token\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\"\n}",
+          "body": "{\n  \"id\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"token\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n  \"role\": \"admin\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",

@@ -1,5 +1,7 @@
 import axios, { CreateAxiosDefaults } from 'axios';
 
+import { getSession } from 'next-auth/react';
+
 import { INetwork } from 'data/network/common/config/network.interface';
 import {
   FetchFunction,
@@ -14,6 +16,8 @@ export const RestClient = (): INetwork<FetchFunction> => ({
     options,
     data,
   }: FetchFunctionInput = {}) => {
+    const session = await getSession();
+
     return axios.create({
       method,
       data,
@@ -21,6 +25,7 @@ export const RestClient = (): INetwork<FetchFunction> => ({
       headers: {
         ...headers,
         app_name: APP_NAME,
+        ...(session && { Authorization: `Bearer ${session.jwt}` }),
       },
     } as CreateAxiosDefaults);
   },

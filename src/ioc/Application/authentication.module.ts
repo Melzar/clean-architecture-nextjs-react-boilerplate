@@ -3,7 +3,7 @@ import { ContainerModule, interfaces } from 'inversify';
 import { AuthenticationRepositoryInterface } from 'domain/Application/Authentication/repositories/authenticationRepository.interface';
 import { DataModuleSymbols } from 'data/DataModuleSymbols';
 import { applyDependencies } from 'ioc/common/utils/ioc.utils';
-import { AuthRepository } from 'data/network/rest/v1/Auth/repositories/auth.repository';
+import { AuthenticationRepository } from 'data/network/rest/v1/Authentication/repositories/authentication.repository';
 import { IUseCase } from 'domain/common/useCases/useCase.interface';
 import { AuthenticateUserRequest } from 'domain/Application/Authentication/useCases/requests/AuthenticateUserRequest';
 import { Authentication } from 'domain/Application/Authentication/models/Authentication';
@@ -17,7 +17,7 @@ const initializeModule = (bind: interfaces.Bind) => {
   bind<AuthenticationRepositoryInterface>(
     DataModuleSymbols.AUTH_REPOSITORY
   ).toConstantValue(
-    applyDependencies(AuthRepository, [DataModuleSymbols.REST_CLIENT])
+    applyDependencies(AuthenticationRepository, [DataModuleSymbols.REST_CLIENT])
   );
 
   bind<IUseCase<AuthenticateUserRequest, Promise<Authentication>>>(

@@ -6,11 +6,15 @@ export const authenticationDomainToAuthenticationView = ({
   email,
   firstName,
   fullName,
+  token,
+  role,
 }: Authentication): AuthenticationView => {
   return {
     id,
     email,
     firstName,
     fullName,
+    token,
+    role,
   };
 };
