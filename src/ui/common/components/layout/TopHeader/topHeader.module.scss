@@ -8,6 +8,8 @@
 }
 
 .headerContainer {
+  min-height: 24px;
+
   &::before {
     background: linear-gradient(
       to right,

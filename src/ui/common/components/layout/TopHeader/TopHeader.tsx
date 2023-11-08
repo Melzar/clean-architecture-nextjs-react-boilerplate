@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactNode } from 'react';
 
 import styles from 'ui/common/components/layout/TopHeader/topHeader.module.scss';

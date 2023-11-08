@@ -14,7 +14,7 @@ import styles from './topNavigation.module.scss';
 export const TopNavigation = () => {
   const { isActive, isHome, setApplicationTheme, onLogoutClick, onLoginClick } =
     useTopNavigation();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <nav className="flex flex-row justify-end items-center">
@@ -38,7 +38,7 @@ export const TopNavigation = () => {
       >
         Light
       </button>
-      {!session && (
+      {!session && status !== 'loading' && (
         <button className="mr-6" onClick={onLoginClick} type="button">
           Login
         </button>
