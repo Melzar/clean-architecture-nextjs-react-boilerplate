@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes';
 import { useLoginData } from 'ui/Login/login.data';
 
 type UseLoginHook = {
-  theme: string;
+  theme: string | undefined;
 };
 
 export const useLogin = (): UseLoginHook => {

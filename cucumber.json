@@ -1,0 +1,14 @@
+{
+  "default" :{
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    },
+    "paths":["e2e/features/**/*.feature"],
+    "require": [
+      "e2e/steps/**/*.ts"
+    ],
+    "parallel": 2,
+    "requireModule": ["ts-node/register"],
+    "format": ["progress"]
+  }
+}

@@ -20,7 +20,7 @@
     "sourceType": "module"
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "testing-library", "jest-dom"],
   "rules": {
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
@@ -47,6 +47,15 @@
     "@typescript-eslint/ban-types": "off",
     "no-void": "off"
   },
+  "overrides": [
+    // Only uses Testing Library lint rules in test files
+    {
+      "files": [
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react", "plugin:jest-dom/recommended"]
+    }
+  ],
   "settings": {
     "import/resolver": {
       "node": {

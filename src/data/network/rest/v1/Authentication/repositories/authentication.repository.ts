@@ -1,4 +1,4 @@
-import { AuthenticationRepositoryInterface } from 'domain/Application/Authentication/repositories/authenticationRepository.interface';
+import { IAuthenticationRepository } from 'domain/Application/Authentication/repositories/authenticationRepository.interface';
 import { AuthenticateRepositoryRequest } from 'domain/Application/Authentication/repositories/requests/AuthenticateRepositoryRequest';
 import {
   ApiResponse,
@@ -12,7 +12,7 @@ import { INetwork } from 'data/network/common/config/network.interface';
 
 export const AuthenticationRepository = ({
   client,
-}: INetwork<FetchFunction>): AuthenticationRepositoryInterface => ({
+}: INetwork<FetchFunction>): IAuthenticationRepository => ({
   authenticate: async ({
     username,
     password,
