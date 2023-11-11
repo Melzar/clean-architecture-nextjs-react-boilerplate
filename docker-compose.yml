@@ -9,10 +9,10 @@ services:
       dockerfile: Dockerfile
     restart: always
     volumes:
-      - .:/src/app
-      - /node_modules
-      - /.next
-      - ./.docker.env.development:/src/app/.env.development:readonly
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+      - ./.docker.env.development:/app/.env.development:readonly
     ports:
       - "3000:3000"
   mock-server:
@@ -23,4 +23,17 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./clean-mock-server.json:/mock-server.json:readonly
+      - ./clean-mock-server.json:/app/mock-server.json:readonly
+  storybook:
+    build:
+      context: .
+      target: storybook
+      dockerfile: Dockerfile
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+
+

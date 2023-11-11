@@ -1,0 +1,9 @@
+@import 'src/ui/common/styles/colors.module';
+
+body {
+  background-color: $white;
+}
+
+.sb-show-main.sb-main-padded,body {
+  padding: 0
+}
