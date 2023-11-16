@@ -41,12 +41,598 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "afaef4f7-7344-4f79-a0af-6ba05a87d6bf",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/clients",
+      "responses": [
+        {
+          "uuid": "1632927f-c868-47e6-aa3b-ebe5b2ab3bc8",
+          "body": "[\n  {\n    \"id\": \"1c1\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\",\n  },\n  {\n    \"id\": \"2c2\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\",\n  },  \n  {\n    \"id\": \"3c3\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\",\n  }, \n  {\n    \"id\": \"4c4\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\",\n  },\n  {\n    \"id\": \"5c5\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\",\n  },  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "397f5de3-f16b-4eec-9370-f7cc9f183335",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/clients/:id",
+      "responses": [
+        {
+          "uuid": "91c835ad-8463-46f3-adad-fa7a55c86a18",
+          "body": "{\n  \"id\": \"1c1\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1c1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "44cf38ec-b662-4407-92f1-04c877ce459f",
+          "body": "{\n  \"id\": \"2c2\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "2c2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "b0a95b1e-2dcc-478c-a40c-50ab9a75f1dd",
+          "body": "{\n  \"id\": \"3c3\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "3c3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "a2517780-5694-45e3-9dde-9b56033cf661",
+          "body": "{\n  \"id\": \"4c4\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "4c4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "1026ed03-a99d-4590-b1f8-5552a2e2650c",
+          "body": "{\n  \"id\": \"5c5\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "5c5",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "550eeb6b-1e8f-4646-88b6-322d67ac9bce",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/clients/:id/packages",
+      "responses": [
+        {
+          "uuid": "18ed1085-faf7-4e78-afde-88ea6b9dfd8a",
+          "body": "[\n  {\n    \"id\": \"1p1\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"1pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"1pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"1pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  }  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1c1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "05e9f4e7-9c14-4b7a-9c1d-8442e7860594",
+          "body": "[\n  {\n    \"id\": \"1p2\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"2pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"2pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"2pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  }  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "2c2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "09aa9e48-cfb0-4c05-99a4-69cb7d6b711d",
+          "body": "[\n  {\n    \"id\": \"1p3\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"3pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"3pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"3pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  }  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "3c3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "cd96217a-3c39-43fb-a3fa-3dc242dc012d",
+          "body": "[\n  {\n    \"id\": \"1p4\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"4pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"4pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"4pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  }  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "4c4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "1b5d2753-32b6-4f8b-aae6-224adc30f259",
+          "body": "[\n  {\n    \"id\": \"1p5\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"5pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"5pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"5pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  }  \n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "5c5",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e2c0797e-f63b-488f-b6f8-03108d9e6351",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/packages",
+      "responses": [
+        {
+          "uuid": "826901c4-d753-4f78-b9f4-b304864b5622",
+          "body": "[\n  {\n    \"id\": \"1p1\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"1pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"1pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"1pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  },\n  {\n    \"id\": \"1p2\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"2pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"2pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"2pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  },\n  {\n    \"id\": \"1p3\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"3pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"3pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"3pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  },\n  {\n    \"id\": \"1p4\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"4pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"4pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"4pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  },\n  {\n    \"id\": \"1p5\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"5pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"5pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"5pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "42ae0690-6091-4db5-8f47-b1e94782b4fe",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "v1/packages/:id",
+      "responses": [
+        {
+          "uuid": "77fd6a88-ad65-4dce-a2fd-3c940633082b",
+          "body": "{\n    \"id\": \"1p1\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"1pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"1pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"1pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1p1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "dfccd835-8556-48c8-bf67-fc17b6f232fa",
+          "body": "{\n    \"id\": \"1p2\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"2pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"2pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"2pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1p2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "fd1b0ada-c5e2-4fa5-936b-607e8e2346ff",
+          "body": "{\n    \"id\": \"1p3\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"3pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"3pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"3pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1p3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "8f1b1de2-92a4-400a-9f8c-8067dcfb5c73",
+          "body": "{\n    \"id\": \"1p4\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"4pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"4pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"4pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1p4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "e636c893-e54f-4d97-b678-3b099a186043",
+          "body": "{\n    \"id\": \"1p5\",\n    \"name\": \"{{faker 'string.alphanumeric' 25}}\",\n    \"products\": [\n      {\n        \"id\": \"5pr1\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"5pr2\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n      {\n        \"id\": \"5pr3\",\n        \"name:\": \"{{faker 'string.alphanumeric' 25}}\"\n      }\n    ],\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1p5",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
     {
       "type": "route",
       "uuid": "5363b0a4-1c71-42aa-a001-9141f3a20a7c"
+    },
+    {
+      "type": "route",
+      "uuid": "afaef4f7-7344-4f79-a0af-6ba05a87d6bf"
+    },
+    {
+      "type": "route",
+      "uuid": "397f5de3-f16b-4eec-9370-f7cc9f183335"
+    },
+    {
+      "type": "route",
+      "uuid": "550eeb6b-1e8f-4646-88b6-322d67ac9bce"
+    },
+    {
+      "type": "route",
+      "uuid": "e2c0797e-f63b-488f-b6f8-03108d9e6351"
+    },
+    {
+      "type": "route",
+      "uuid": "42ae0690-6091-4db5-8f47-b1e94782b4fe"
     }
   ],
   "proxyMode": false,
