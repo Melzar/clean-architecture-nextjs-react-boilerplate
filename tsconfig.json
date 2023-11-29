@@ -49,6 +49,7 @@
     ]
   },
   "include": [
+    "next-auth.d.ts",
     "next-env.d.ts",
     "**/*.d.ts",
     "**/*.ts",

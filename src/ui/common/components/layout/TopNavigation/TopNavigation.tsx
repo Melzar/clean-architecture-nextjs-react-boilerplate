@@ -4,40 +4,39 @@ import Link from 'next/link';
 
 import { useSession } from 'next-auth/react';
 
+import { RiMoonClearFill } from 'react-icons/ri';
+
+import React from 'react';
+
 import { APP_ROUTES } from 'ui/common/navigation/routes';
 import { useTopNavigation } from 'ui/common/components/layout/TopNavigation/topNavigation.hooks';
 
-import { THEME } from 'ui/common/consts/theme';
+import { Switch } from 'ui/common/components/toggles/Switch/Switch';
 
 import styles from './topNavigation.module.scss';
 
-export const TopNavigation = () => {
-  const { isActive, isHome, setApplicationTheme, onLogoutClick, onLoginClick } =
+type Props = {
+  className?: string;
+};
+
+export const TopNavigation = ({ className }: Props) => {
+  const { isActive, isHome, onThemeToggle, onLogoutClick, onLoginClick } =
     useTopNavigation();
   const { data: session, status } = useSession();
 
   return (
-    <nav className="flex flex-row justify-end items-center">
+    <nav
+      className={`flex flex-row justify-end items-center ${styles.topNavigation} ${className}`}
+    >
       <Link
         className={`mr-6 ${isHome() ? styles.active : ''}`}
         href={APP_ROUTES.HOME}
       >
         Home
       </Link>
-      <button
-        className="mr-6"
-        type="button"
-        onClick={setApplicationTheme(THEME.DARK)}
-      >
-        Dark
-      </button>
-      <button
-        className="mr-6"
-        type="button"
-        onClick={setApplicationTheme(THEME.LIGHT)}
-      >
-        Light
-      </button>
+      <Switch name="theme" id="theme" onChange={onThemeToggle}>
+        <RiMoonClearFill />
+      </Switch>
       {!session && status !== 'loading' && (
         <button className="mr-6" onClick={onLoginClick} type="button">
           Login

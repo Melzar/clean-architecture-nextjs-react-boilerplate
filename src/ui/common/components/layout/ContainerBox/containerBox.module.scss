@@ -1,0 +1,15 @@
+@import 'src/ui/common/styles/colors.module';
+
+.container {
+  background: linear-gradient(
+    0deg,
+    $port-gore-lighter 0%,
+    $rhino 50%,
+    $san-juan 100%
+  );
+  border-radius: 10px;
+  box-shadow: $box-shadow 0 5px 15px 0;
+  height: 400px;
+  padding: 20px;
+  width: 400px;
+}

@@ -1,0 +1,13 @@
+@import 'src/ui/common/styles/colors.module';
+
+.pill {
+  align-items: center;
+  background: $mirage-dark;
+  border-radius: 50px;
+  color: $white;
+  display: inline-flex;
+  height: 35px;
+  justify-content: center;
+  padding: 10px 15px;
+  width: auto;
+}

@@ -25,6 +25,7 @@ export const AuthenticationOptions: AuthOptions = {
           email: string;
           password: string;
         };
+
         const authentication = await authenticate({ email, password });
 
         if (authentication) {
@@ -56,6 +57,16 @@ export const AuthenticationOptions: AuthOptions = {
           : {}),
       };
     },
+    // redirect: async (params: { url: string }) => {
+    //   const { url } = params;
+    //
+    //   if (!url.startsWith('http')) return url;
+    //
+    //   const callbackUrl = new URL(url).searchParams.get('callbackUrl');
+    //   if (!callbackUrl) return url;
+    //
+    //   return new URL(callbackUrl as string).pathname;
+    // },
   },
   pages: {
     signIn: '/login',

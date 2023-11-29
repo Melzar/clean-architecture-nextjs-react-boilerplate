@@ -1,0 +1,18 @@
+@import 'src/ui/common/styles/colors.module';
+
+.field {
+  background: $east-bay;
+  border-radius: 5px;
+  color: $white;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  width: 100%;
+
+  &:focus {
+    background: $waikawa-gray;
+    box-shadow:
+      $box-shadow-dark 0 4px 6px -1px,
+      $box-shadow-light 0 2px 4px -1px;
+    outline: none;
+  }
+}

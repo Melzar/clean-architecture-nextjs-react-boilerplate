@@ -1,5 +1,9 @@
 @import 'src/ui/common/styles/colors.module';
 
+.topNavigation {
+  height: 60px;
+}
+
 .active {
   font-weight: bold;
 }

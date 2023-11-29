@@ -1,0 +1,55 @@
+@import 'src/ui/common/styles/colors.module';
+
+.switch {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+
+  label {
+    align-items: center;
+    background: $mirage-dark;
+    border-radius: 50px;
+    display: flex;
+    height: 30px;
+    transition: 0.3s ease-in-out;
+    width: 60px;
+  }
+
+  svg {
+    color: $mirage-dark;
+    height: 19px;
+    left: 5px;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    width: 19px;
+  }
+
+  input {
+    appearance: none;
+    background: $white;
+    border-radius: 20px;
+    height: 24px;
+    position: absolute;
+    transform: translateX(4px);
+    transition: 0.3s ease-in-out;
+    width: 24px;
+
+    &:checked {
+      background: $mirage-dark;
+      height: 26px;
+      transform: translateX(31px);
+      width: 26px;
+
+      ~ label {
+        background: $san-juan;
+
+        svg {
+          color: $white;
+          height: 16px;
+          left: 36px;
+          width: 16px;
+        }
+      }
+    }
+  }
+}

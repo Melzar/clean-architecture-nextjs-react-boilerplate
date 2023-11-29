@@ -1,9 +1,17 @@
 @import 'src/ui/common/styles/colors.module';
 
 .container {
-  background-color: $martinique;
+  background-color: $port-gore;
 }
 
 .dark.container {
-  background-color: $martinique-dark;
+  background-color: $port-gore;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.signInButton {
+  margin-top: 20px;
 }

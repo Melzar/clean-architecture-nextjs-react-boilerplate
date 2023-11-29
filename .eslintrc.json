@@ -41,6 +41,8 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "react/function-component-definition": "off",
+    "react/require-default-props": "off",
+    "react/button-has-type": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
     "lines-between-class-members": "off",

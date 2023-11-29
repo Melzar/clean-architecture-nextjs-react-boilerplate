@@ -15,7 +15,7 @@ FROM base as development
 ENV NODE_ENV=development
 RUN yarn install
 COPY . /app
-CMD yarn run dev
+CMD NODE_OPTIONS='--inspect' yarn install && yarn run dev
 
 FROM node:18.17.1 as base-mock
 RUN mkdir -p /app

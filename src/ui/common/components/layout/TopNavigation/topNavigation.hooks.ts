@@ -4,8 +4,11 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { useTheme } from 'next-themes';
 
+import React from 'react';
+
 import { APP_ROUTES } from 'ui/common/navigation/routes';
 import { useAuthentication } from 'ui/shared/Application/Authentication/authentication.hooks';
+import { THEME } from 'ui/common/consts/theme';
 
 export const useTopNavigation = () => {
   const { logIn, logOut } = useAuthentication();
@@ -22,7 +25,8 @@ export const useTopNavigation = () => {
     return pathname === APP_ROUTES.HOME;
   };
 
-  const setApplicationTheme = (theme: string) => () => {
+  const onThemeToggle = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const theme = event.target.checked ? THEME.DARK : THEME.LIGHT;
     setTheme(theme);
   };
 
@@ -32,20 +36,20 @@ export const useTopNavigation = () => {
       password: 'test',
     });
     if (result.ok) {
-      router.push('/dashboard');
+      router.push('/');
     }
   };
 
   const onLogoutClick = async () => {
-    logOut();
-    router.push('/');
+    await logOut();
+    router.push('/login');
   };
 
   return {
     isActive,
     isHome,
-    setApplicationTheme,
     onLoginClick,
     onLogoutClick,
+    onThemeToggle,
   };
 };
