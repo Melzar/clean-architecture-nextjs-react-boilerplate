@@ -11,10 +11,12 @@ export type FetchFunction = (
   input?: FetchFunctionInput
 ) => Promise<AxiosInstance>;
 
-export type ResourceDefinition = {
-  [key: string]: (...params: unknown[]) => { path: string; method: Method };
+export type ResourceDefinition<T = never> = (...params: T[]) => {
+  path: string;
+  method: Method;
 };
 
-export type ApiResponse<D> = {
+export type ApiResponse<D, M> = {
   data: D;
+  meta: M;
 };

@@ -50,12 +50,97 @@
     "no-void": "off"
   },
   "overrides": [
-    // Only uses Testing Library lint rules in test files
     {
       "files": [
         "**/?(*.)+(spec|test).[jt]s?(x)"
       ],
       "extends": ["plugin:testing-library/react", "plugin:jest-dom/recommended"]
+    },
+    {
+      "files": [
+        "src/ui/**/*"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              "data", "dataStore", "domain", "app"
+            ]
+          }
+        ],
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "ImportDeclaration[source.value=/^ioc\\u002F.*(?<!\\u002Econtainer)$/]",
+            "message":
+            "Importing from IOC, Domain, Data, DataStore layer is restricted for UI. Only accessing container is allowed"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/presentation/**/*"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": ["ioc", "ui", "data", "app"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/data/**/*"],
+      "rules": {
+        "camelcase": ["off"],
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              "ioc", "ui", "dataStore", "presentation", "app"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/domain/**/*"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              "ioc", "ui", "data", "dataStore", "presentation", "app"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/core/**/*"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              "ioc", "ui", "data", "dataStore", "presentation", "app", "domain"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/**/*.test.ts", "src/**/*.test.tsx"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
     }
   ],
   "settings": {
