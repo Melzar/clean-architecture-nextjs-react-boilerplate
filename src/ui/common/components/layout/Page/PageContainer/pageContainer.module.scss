@@ -1,0 +1,12 @@
+@import 'src/ui/common/styles/colors.module';
+
+.pageContainer {
+  background: radial-gradient(100% 100% at 50% 0%, $san-juan, $mirage);
+  border-radius: 10px;
+  box-shadow: $box-shadow 0 -10px 15px 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 60px;
+  padding: 30px;
+}

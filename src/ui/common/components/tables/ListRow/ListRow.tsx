@@ -3,7 +3,7 @@ import React from 'react';
 import styles from 'ui/common/components/tables/ListRow/listRow.module.scss';
 
 type Props = {
-  key?: string;
+  key: string;
   className?: string;
   children: React.ReactNode;
 };

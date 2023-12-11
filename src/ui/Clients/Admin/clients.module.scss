@@ -1,14 +1,24 @@
-.header {
-  flex: 0.3;
-  margin: 0 60px;
+@import 'src/ui/common/styles/colors.module';
+
+.clientsHeader {
+  margin-bottom: 20px;
+  padding-left: 10px;
 }
 
-.container {
-  background: radial-gradient(100% 100% at 50% 0%, #374676, #1d243e);
-  border-radius: 10px;
-  box-shadow: rgb(0 0 0 / 15%) 0 -10px 15px 0;
+.rowId {
+  display: flex;
+  flex: 0.1;
+  justify-content: center;
+}
+
+.rowEmail {
+  display: flex;
+  flex: 0.5;
+  justify-content: center;
+}
+
+.rowName {
   display: flex;
   flex: 1;
-  margin: 0 60px;
-  padding: 30px;
+  justify-content: center;
 }

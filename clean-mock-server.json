@@ -90,7 +90,7 @@
       "responses": [
         {
           "uuid": "1632927f-c868-47e6-aa3b-ebe5b2ab3bc8",
-          "body": "[\n  {\n    \"id\": \"1c1\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"2c2\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"3c3\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"4c4\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"5c5\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"surname\": \"{{faker 'person.lastName'}}\"\n  }\n]",
+          "body": "[\n  {\n    \"id\": \"1c1\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"lastName\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"2c2\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"lastName\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"3c3\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"lastName\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"4c4\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"lastName\": \"{{faker 'person.lastName'}}\"\n  },\n  {\n    \"id\": \"5c5\",\n    \"email\": \"{{faker 'internet.email' 25}}\",\n    \"firstName\": \"{{faker 'person.firstName'}}\",\n    \"lastName\": \"{{faker 'person.lastName'}}\"\n  }\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -124,7 +124,7 @@
       "responses": [
         {
           "uuid": "91c835ad-8463-46f3-adad-fa7a55c86a18",
-          "body": "{\n  \"id\": \"1c1\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n}",
+          "body": "{\n  \"id\": \"1c1\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"lastName\": \"{{faker 'person.lastName'}}\",\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",

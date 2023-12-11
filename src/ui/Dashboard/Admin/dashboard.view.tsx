@@ -2,17 +2,19 @@
 
 import React from 'react';
 
-import styles from 'ui/Dashboard/Admin/dashboard.module.scss';
-
-import { PageHeader } from 'ui/common/components/typography/PageHeader/PageHeader';
+import { PageHeading } from 'ui/common/components/layout/Page/PageHeading/PageHeading';
+import { PageHeader } from 'ui/common/components/layout/Page/PageHeader/PageHeader';
+import { PageContainer } from 'ui/common/components/layout/Page/PageContainer/PageContainer';
 
 export const DashboardView = () => {
   return (
     <>
-      <div className={styles.header} />
-      <div className={styles.container}>
-        <PageHeader>Dashboard</PageHeader>
-      </div>
+      <PageHeader>
+        <PageHeading>Dashboard</PageHeading>
+      </PageHeader>
+      <PageContainer>
+        <div>Dashboard content</div>
+      </PageContainer>
     </>
   );
 };

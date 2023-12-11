@@ -10,7 +10,7 @@ import { TiWarningOutline } from 'react-icons/ti';
 
 import { LiaShippingFastSolid } from 'react-icons/lia';
 
-import { PageHeader } from 'ui/common/components/typography/PageHeader/PageHeader';
+import { PageHeading } from 'ui/common/components/layout/Page/PageHeading/PageHeading';
 
 import styles from 'ui/Packages/Admin/packages.module.scss';
 import { usePackages } from 'ui/Packages/Admin/packages.hooks';
@@ -24,14 +24,17 @@ import { WidgetAttention } from 'ui/Packages/Admin/components/WidgetAttention/Wi
 import { WidgetCompleted } from 'ui/Packages/Admin/components/WidgetCompleted/widgetCompleted';
 import { WidgetDelivery } from 'ui/Packages/Admin/components/WidgetDelivery/WidgetDelivery';
 import { WidgetContent } from 'ui/common/components/layout/Widget/WidgetContent/WidgetContent';
+import { PageContainer } from 'ui/common/components/layout/Page/PageContainer/PageContainer';
+import { PageHeader } from 'ui/common/components/layout/Page/PageHeader/PageHeader';
+import { PageSubHeader } from 'ui/common/components/layout/Page/PageSubHeader/PageSubHeader';
 
 export const PackagesView = () => {
   const { packages } = usePackages();
 
   return (
     <>
-      <div className={styles.header}>
-        <PageHeader>Packages</PageHeader>
+      <PageHeader>
+        <PageHeading>Packages</PageHeading>
         <div className={styles.headerWidgets}>
           <WidgetNew>
             <WidgetContent>
@@ -62,26 +65,24 @@ export const PackagesView = () => {
             <LuPackageCheck className={styles.widgetIcon} />
           </WidgetCompleted>
         </div>
-      </div>
-      <div className={styles.container}>
-        <SectionHeader className={styles.packagesHeader}>
-          Latest packages
-        </SectionHeader>
-        <div>
-          {packages.map((pack) => (
-            <ListRow className={styles.row}>
-              <div className={styles.rowId}>{pack.id}</div>
-              <div className={styles.rowName}>{pack.name}</div>
-              <div className={styles.rowStatus}>
-                {getPackageStatusIcon(pack.status)}
-              </div>
-              <div className={styles.rowActions}>
-                <RxDotsVertical className={styles.itemActions} />
-              </div>
-            </ListRow>
-          ))}
-        </div>
-      </div>
+      </PageHeader>
+      <PageContainer>
+        <PageSubHeader>
+          <SectionHeader>Latest packages</SectionHeader>
+        </PageSubHeader>
+        {packages.map((pack) => (
+          <ListRow key={pack.id} className={styles.row}>
+            <div className={styles.rowId}>{pack.id}</div>
+            <div className={styles.rowName}>{pack.name}</div>
+            <div className={styles.rowStatus}>
+              {getPackageStatusIcon(pack.status)}
+            </div>
+            <div>
+              <RxDotsVertical className={styles.itemActions} />
+            </div>
+          </ListRow>
+        ))}
+      </PageContainer>
     </>
   );
 };
