@@ -71,7 +71,7 @@ export const PackagesView = () => {
           <SectionHeader>Latest packages</SectionHeader>
         </PageSubHeader>
         {packages.map((pack) => (
-          <ListRow key={pack.id} className={styles.row}>
+          <ListRow key={pack.id}>
             <div className={styles.rowId}>{pack.id}</div>
             <div className={styles.rowName}>{pack.name}</div>
             <div className={styles.rowStatus}>

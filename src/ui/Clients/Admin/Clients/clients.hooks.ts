@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { useClientsData } from 'ui/Clients/Admin/clients.data';
+import { useClientsData } from 'ui/Clients/Admin/Clients/clients.data';
 import { Client } from 'presentation/shared/Clients/models/Client';
 
 type UseClients = {

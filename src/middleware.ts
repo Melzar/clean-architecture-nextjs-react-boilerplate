@@ -21,7 +21,7 @@ export default withAuth(
       request.nextauth.token?.role === 'admin'
     ) {
       return NextResponse.redirect(
-        new URL(APP_ADMIN_ROUTES.DASHBOARD, request.url)
+        new URL(APP_ADMIN_ROUTES.DASHBOARD(), request.url)
       );
     }
 

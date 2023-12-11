@@ -1,8 +1,12 @@
-@import 'src/ui/common/styles/colors.module';
+@import 'ui/common/styles/colors.module';
 
 .clientsHeader {
   margin-bottom: 20px;
   padding-left: 10px;
+}
+
+.row {
+  margin-bottom: 1px;
 }
 
 .rowId {

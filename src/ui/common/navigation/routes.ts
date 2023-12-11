@@ -5,8 +5,9 @@ export const APP_ROUTES = {
 };
 
 export const APP_ADMIN_ROUTES = {
-  HOME: '/admin',
-  DASHBOARD: '/admin/dashboard',
-  CLIENTS: '/admin/clients',
-  PACKAGES: '/admin/packages',
+  HOME: () => '/admin',
+  DASHBOARD: () => '/admin/dashboard',
+  CLIENTS: () => '/admin/clients',
+  CLIENT: (clientId: string) => `/admin/clients/${clientId}`,
+  PACKAGES: () => '/admin/packages',
 };

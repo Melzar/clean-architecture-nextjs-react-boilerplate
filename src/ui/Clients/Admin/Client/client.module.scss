@@ -1,0 +1,54 @@
+@import 'ui/common/styles/colors.module';
+
+.itemActions {
+  height: 24px;
+  width: 24px;
+}
+
+.rowStatusIconDelivered {
+  color: $aquamarine;
+}
+
+.rowStatusIconCancelled {
+  color: $dove-gray;
+}
+
+.rowStatusIconAttention {
+  color: $sunset-orange;
+}
+
+.rowStatusIconInTransit {
+  color: $dodger-blue-light;
+}
+
+.rowStatusIconShipped {
+  color: $golden-fizz;
+}
+
+.rowStatusIconProcessing {
+  color: $malibu-light;
+}
+
+.rowId {
+  display: flex;
+  flex: 0.1;
+  justify-content: center;
+}
+
+.rowStatusIcon {
+  height: 24px;
+  width: 24px;
+}
+
+.rowName {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.widgetIcon {
+  align-self: center;
+  height: 40px;
+  margin-left: auto;
+  width: 40px;
+}
