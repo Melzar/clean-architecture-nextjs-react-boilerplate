@@ -1,0 +1,11 @@
+@import '../../../../common/styles/colors.module';
+
+.widgetAttention {
+  background: linear-gradient(
+    90deg,
+    $carnation 0%,
+    $bittersweet 50%,
+    $salmon 100%
+  );
+  box-shadow: $salmon-shadow 0 5px 15px 0;
+}

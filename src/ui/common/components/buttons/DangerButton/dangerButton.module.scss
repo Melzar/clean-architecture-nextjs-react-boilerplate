@@ -1,0 +1,10 @@
+@import 'src/ui/common/styles/colors.module';
+
+.dangerButton {
+  background: linear-gradient(
+    90deg,
+    $sunset-orange-light 0%,
+    $bittersweet 50%,
+    $salmon 100%
+  );
+}

@@ -1,0 +1,11 @@
+@import '../../../../common/styles/colors.module';
+
+.widgetCompleted {
+  background: linear-gradient(
+    90deg,
+    $turquoise-dark 0%,
+    $turquoise 50%,
+    $riptide 100%
+  );
+  box-shadow: $riptide-shadow 0 5px 15px 0;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from 'ui/common/components/buttons/PrimaryButton/primaryButton.module.scss';
+import { Button } from 'ui/common/components/buttons/Button/Button';
 
 type Props = {
   className?: string;
@@ -15,12 +16,12 @@ export const PrimaryButton = ({
   className,
 }: Props) => {
   return (
-    <button
+    <Button
       className={`${styles.primaryButton} ${className}`}
       type={type}
       onClick={onClick}
     >
       {children}
-    </button>
+    </Button>
   );
 };

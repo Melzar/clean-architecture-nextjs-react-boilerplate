@@ -3,14 +3,14 @@ import { AuthenticationRest } from 'data/network/rest/v1/Authentication/models/A
 
 export const authenticationRestToAuthenticationDomain = ({
   id,
-  surname,
+  lastName,
   firstName,
   token,
   email,
   role,
 }: AuthenticationRest): Authentication => ({
   id,
-  fullName: `${firstName} ${surname}`,
+  fullName: `${firstName} ${lastName}`,
   firstName,
   token,
   email,

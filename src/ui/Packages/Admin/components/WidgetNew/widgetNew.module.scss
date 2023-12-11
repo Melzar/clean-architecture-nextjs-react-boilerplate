@@ -1,0 +1,11 @@
+@import '../../../../common/styles/colors.module';
+
+.widgetNew {
+  background: linear-gradient(
+    90deg,
+    $heliotrope-darker 0%,
+    $heliotrope-dark 50%,
+    $heliotrope 100%
+  );
+  box-shadow: $heliotrope-shadow 0 5px 15px 0;
+}

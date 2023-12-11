@@ -1,0 +1,11 @@
+@import '../../../../common/styles/colors.module';
+
+.widgetDelivery {
+  background: linear-gradient(
+    90deg,
+    $cornflower-light 0%,
+    $malibu-darker 50%,
+    $malibu 100%
+  );
+  box-shadow: $malibu-shadow 0 5px 15px 0;
+}

@@ -1,0 +1,11 @@
+.widget {
+  border-radius: 10px;
+  display: flex;
+  margin-right: 25px;
+  padding: 30px;
+  width: 100%;
+
+  &:last-child {
+    margin-right: initial;
+  }
+}

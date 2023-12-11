@@ -1,0 +1,21 @@
+@import 'src/ui/common/styles/colors.module';
+
+.button {
+  border-radius: 15px;
+  box-shadow:
+    $box-shadow-dark 0 4px 6px -1px,
+    $box-shadow-light 0 2px 4px -1px;
+  display: flex;
+  justify-content: center;
+  padding: 8px 15px;
+  text-align: center;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    box-shadow: initial;
+  }
+}

@@ -37,6 +37,7 @@
         "newlines-between": "always-and-inside-groups"
       }
     ],
+    "jsx-a11y/control-has-associated-label": "off",
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",

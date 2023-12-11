@@ -38,7 +38,13 @@ export const AuthenticationOptions: AuthOptions = {
   callbacks: {
     jwt: async ({ token, user }) => {
       if (user) {
-        return { ...token, role: (user as User).role, id: user.id };
+        return {
+          ...token,
+          role: (user as User).role,
+          id: user.id,
+          firstName: user.firstName,
+          fullName: user.fullName,
+        };
       }
       return token;
     },
@@ -48,6 +54,8 @@ export const AuthenticationOptions: AuthOptions = {
         ...(token
           ? {
               meta: {
+                firstName: token.firstName,
+                fullName: token.fullName,
                 email: token.email,
                 role: token.role,
                 id: token.id,

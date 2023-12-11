@@ -6,6 +6,12 @@ export const lato = Lato({
   weight: '400',
 });
 
+export const latoBold = Lato({
+  subsets: ['latin'],
+  variable: '--font-lato',
+  weight: '700',
+});
+
 export const pacifico = Pacifico({
   subsets: ['latin'],
   variable: '--font-pacifico',

@@ -1,8 +1,17 @@
 @import 'src/ui/common/styles/colors.module';
 
 .header {
-  flex: 0.3;
+  display: flex;
+  flex: 0.2;
+  flex-direction: column;
   margin: 0 60px;
+}
+
+.headerWidgets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto 0;
 }
 
 .container {
@@ -11,6 +20,65 @@
   box-shadow: $box-shadow 0 -10px 15px 0;
   display: flex;
   flex: 1;
+  flex-direction: column;
   margin: 0 60px;
   padding: 30px;
+}
+
+.packagesHeader {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.itemActions {
+  height: 24px;
+  width: 24px;
+}
+
+.rowStatusIcon {
+  height: 24px;
+  width: 24px;
+}
+
+.rowStatusIconDelivered {
+  color: $aquamarine;
+}
+
+.rowStatusIconCancelled {
+  color: $dove-gray;
+}
+
+.rowStatusIconAttention {
+  color: $sunset-orange;
+}
+
+.rowStatusIconInTransit {
+  color: $dodger-blue-light;
+}
+
+.rowStatusIconShipped {
+  color: $golden-fizz;
+}
+
+.rowStatusIconProcessing {
+  color: $malibu-light;
+}
+
+.rowId {
+  display: flex;
+  flex: 0.1;
+  justify-content: center;
+}
+
+.rowName {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.widgetIcon {
+  align-self: center;
+  height: 40px;
+  margin-left: auto;
+  width: 40px;
 }

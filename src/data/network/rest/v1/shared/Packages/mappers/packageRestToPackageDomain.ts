@@ -6,9 +6,11 @@ export const packageRestToPackageDomain = ({
   name,
   id,
   products,
+  status,
 }: PackageRest): Package => ({
   name,
   id,
+  status,
   products: productsRestToProductsDomain(products),
 });
 

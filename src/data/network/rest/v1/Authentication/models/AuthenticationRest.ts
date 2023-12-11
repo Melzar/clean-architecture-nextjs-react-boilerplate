@@ -5,6 +5,6 @@ export type AuthenticationRest = {
   readonly email: string;
   readonly token: string;
   readonly firstName: string;
-  readonly surname: string;
+  readonly lastName: string;
   readonly role: RoleRest;
 };

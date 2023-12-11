@@ -3,12 +3,12 @@ import { Client } from 'domain/Clients/models/Client';
 
 export const clientRestToClientDomain = ({
   id,
-  surname,
+  lastName,
   firstName,
   email,
 }: ClientRest): Client => ({
   id,
-  surname,
+  lastName,
   firstName,
   email,
 });

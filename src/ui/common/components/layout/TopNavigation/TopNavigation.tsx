@@ -1,17 +1,18 @@
 'use client';
 
-import Link from 'next/link';
-
 import { useSession } from 'next-auth/react';
 
 import { RiMoonClearFill } from 'react-icons/ri';
 
 import React from 'react';
 
-import { APP_ROUTES } from 'ui/common/navigation/routes';
 import { useTopNavigation } from 'ui/common/components/layout/TopNavigation/topNavigation.hooks';
 
 import { Switch } from 'ui/common/components/toggles/Switch/Switch';
+
+import { Pill } from 'ui/common/components/pills/Pill/Pill';
+
+import { latoBold } from 'ui/common/assets/fonts/fonts';
 
 import styles from './topNavigation.module.scss';
 
@@ -20,46 +21,34 @@ type Props = {
 };
 
 export const TopNavigation = ({ className }: Props) => {
-  const { isActive, isHome, onThemeToggle, onLogoutClick, onLoginClick } =
-    useTopNavigation();
-  const { data: session, status } = useSession();
+  const { onThemeToggle } = useTopNavigation();
+  const { data: session } = useSession();
 
   return (
     <nav
       className={`flex flex-row justify-end items-center ${styles.topNavigation} ${className}`}
     >
-      <Link
-        className={`mr-6 ${isHome() ? styles.active : ''}`}
-        href={APP_ROUTES.HOME}
-      >
-        Home
-      </Link>
-      <Switch name="theme" id="theme" onChange={onThemeToggle}>
-        <RiMoonClearFill />
-      </Switch>
-      {!session && status !== 'loading' && (
-        <button className="mr-6" onClick={onLoginClick} type="button">
-          Login
-        </button>
-      )}
       {session && (
         <>
-          <Link
-            className={`mr-6 ${
-              isActive(APP_ROUTES.DASHBOARD) ? styles.active : ''
-            }`}
-            href={APP_ROUTES.DASHBOARD}
-          >
-            Dashboard
-          </Link>
-          <button className="mr-6" onClick={onLogoutClick} type="button">
-            Logout
-          </button>
-          <span>
-            {session.meta.email} {session.meta.role}
+          <span className={styles.topNavigationItem}>
+            Hello,{' '}
+            <span className={latoBold.className}>{session.meta.fullName}</span>
           </span>
+          <div className={styles.imageCircle} />
+          <Pill className={styles.topNavigationItem}>
+            <span className={styles.status} />
+            You&apos;re {session.meta.role}
+          </Pill>
         </>
       )}
+      <Switch
+        className={styles.topNavigationItem}
+        name="theme"
+        id="theme"
+        onChange={onThemeToggle}
+      >
+        <RiMoonClearFill />
+      </Switch>
     </nav>
   );
 };

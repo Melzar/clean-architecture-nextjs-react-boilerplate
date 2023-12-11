@@ -1,7 +1,8 @@
 import React from 'react';
 
+import { MdOutlinePowerSettingsNew, MdDashboard } from 'react-icons/md';
+
 import { PiPackageLight, PiUsersThreeLight } from 'react-icons/pi';
-import { MdDashboard } from 'react-icons/md';
 
 import Link from 'next/link';
 
@@ -12,7 +13,7 @@ import { useSideNavigation } from 'ui/common/components/layout/SideNavigation/si
 import { APP_ADMIN_ROUTES } from 'ui/common/navigation/routes';
 
 export const SideNavigation = () => {
-  const { isActive } = useSideNavigation();
+  const { isActive, onLogoutClick } = useSideNavigation();
 
   return (
     <aside className={styles.sideNavigation}>
@@ -41,6 +42,12 @@ export const SideNavigation = () => {
       >
         <PiPackageLight className={styles.navIcon} />
       </Link>
+      <button
+        onClick={onLogoutClick}
+        className={`${styles.navItem} ${styles.navItemLogout}`}
+      >
+        <MdOutlinePowerSettingsNew className={styles.navIcon} />
+      </button>
     </aside>
   );
 };
