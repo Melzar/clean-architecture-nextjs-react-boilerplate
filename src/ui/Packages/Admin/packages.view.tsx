@@ -19,14 +19,15 @@ import { getPackageStatusIcon } from 'ui/Packages/Admin/packages.partials';
 import { ListRow } from 'ui/common/components/tables/ListRow/ListRow';
 import { WidgetHeader } from 'ui/common/components/typography/WidgetHeader/WidgetHeader';
 import { WidgetSubHeader } from 'ui/common/components/typography/WidgetSubHeader/WidgetSubHeader';
-import { WidgetNew } from 'ui/Packages/Admin/components/WidgetNew/WidgetNew';
-import { WidgetAttention } from 'ui/Packages/Admin/components/WidgetAttention/WidgetAttention';
-import { WidgetCompleted } from 'ui/Packages/Admin/components/WidgetCompleted/widgetCompleted';
-import { WidgetDelivery } from 'ui/Packages/Admin/components/WidgetDelivery/WidgetDelivery';
+import { WidgetNew } from 'ui/common/components/layout/Widget/WidgetNew/WidgetNew';
+import { WidgetAttention } from 'ui/common/components/layout/Widget/WidgetAttention/WidgetAttention';
+import { WidgetCompleted } from 'ui/common/components/layout/Widget/WidgetCompleted/widgetCompleted';
+import { WidgetDelivery } from 'ui/common/components/layout/Widget/WidgetDelivery/WidgetDelivery';
 import { WidgetContent } from 'ui/common/components/layout/Widget/WidgetContent/WidgetContent';
 import { PageContainer } from 'ui/common/components/layout/Page/PageContainer/PageContainer';
 import { PageHeader } from 'ui/common/components/layout/Page/PageHeader/PageHeader';
 import { PageSubHeader } from 'ui/common/components/layout/Page/PageSubHeader/PageSubHeader';
+import { WidgetHeading } from 'ui/common/components/layout/Widget/WidgetHeading/WidgetHeading';
 
 export const PackagesView = () => {
   const { packages } = usePackages();
@@ -35,7 +36,7 @@ export const PackagesView = () => {
     <>
       <PageHeader>
         <PageHeading>Packages</PageHeading>
-        <div className={styles.headerWidgets}>
+        <WidgetHeading>
           <WidgetNew>
             <WidgetContent>
               <WidgetSubHeader>New today</WidgetSubHeader>
@@ -64,7 +65,7 @@ export const PackagesView = () => {
             </WidgetContent>
             <LuPackageCheck className={styles.widgetIcon} />
           </WidgetCompleted>
-        </div>
+        </WidgetHeading>
       </PageHeader>
       <PageContainer>
         <PageSubHeader>

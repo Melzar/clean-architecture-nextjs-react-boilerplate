@@ -3,10 +3,10 @@ import { Product } from 'domain/Packages/models/Product';
 
 export const productRestToProductDomain = ({
   id,
-  name,
+  productName,
 }: ProductRest): Product => ({
   id,
-  name,
+  productName,
 });
 
 export const productsRestToProductsDomain = (

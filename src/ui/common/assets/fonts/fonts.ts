@@ -23,3 +23,9 @@ export const nunitoLight = Nunito({
   variable: '--font-nunito',
   weight: '200',
 });
+
+export const nunitoRegular = Nunito({
+  subsets: ['latin'],
+  variable: '--font-nunito',
+  weight: '500',
+});

@@ -8,7 +8,9 @@
   flex-direction: row;
   height: 60px;
   margin-bottom: 1px;
+  outline: none;
   padding: 10px;
+  width: 100%;
 
   &:hover {
     background: $east-bay;

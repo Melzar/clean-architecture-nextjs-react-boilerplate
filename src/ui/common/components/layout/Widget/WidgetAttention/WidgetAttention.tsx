@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from 'ui/Packages/Admin/components/WidgetAttention/widgetAttention.module.scss';
+import styles from 'ui/common/components/layout/Widget/WidgetAttention/widgetAttention.module.scss';
 import { Widget } from 'ui/common/components/layout/Widget/Widget';
 
 type Props = { children?: React.ReactNode };
