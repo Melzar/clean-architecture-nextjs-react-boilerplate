@@ -1,0 +1,10 @@
+@import 'src/ui/common/styles/colors.module';
+
+.dashboardMessage {
+  align-items: center;
+  align-self: baseline;
+  background: $cloud-burst;
+  border-radius: 15px;
+  display: flex;
+  padding: 20px;
+}

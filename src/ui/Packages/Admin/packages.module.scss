@@ -59,3 +59,25 @@
   margin-left: auto;
   width: 40px;
 }
+
+.productsHeader {
+  margin-bottom: 15px;
+}
+
+.productsContent {
+  display: flex;
+}
+
+.productWrapper {
+  background: $cloud-burst;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20px;
+  padding: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

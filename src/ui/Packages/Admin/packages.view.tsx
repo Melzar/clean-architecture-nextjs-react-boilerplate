@@ -28,9 +28,11 @@ import { PageContainer } from 'ui/common/components/layout/Page/PageContainer/Pa
 import { PageHeader } from 'ui/common/components/layout/Page/PageHeader/PageHeader';
 import { PageSubHeader } from 'ui/common/components/layout/Page/PageSubHeader/PageSubHeader';
 import { WidgetHeading } from 'ui/common/components/layout/Widget/WidgetHeading/WidgetHeading';
+import { ContainerHeader } from 'ui/common/components/typography/ContainerHeader/ContainerHeader';
+import { Container } from 'ui/common/components/layout/Container/Container';
 
 export const PackagesView = () => {
-  const { packages } = usePackages();
+  const { packages, onRowClick, isPackageSelected } = usePackages();
 
   return (
     <>
@@ -72,16 +74,33 @@ export const PackagesView = () => {
           <SectionHeader>Latest packages</SectionHeader>
         </PageSubHeader>
         {packages.map((pack) => (
-          <ListRow key={pack.id}>
-            <div className={styles.rowId}>{pack.id}</div>
-            <div className={styles.rowName}>{pack.name}</div>
-            <div className={styles.rowStatus}>
-              {getPackageStatusIcon(pack.status)}
-            </div>
-            <div>
-              <RxDotsVertical className={styles.itemActions} />
-            </div>
-          </ListRow>
+          <>
+            <ListRow key={pack.id} onClick={onRowClick(pack.id)}>
+              <div className={styles.rowId}>{pack.id}</div>
+              <div className={styles.rowName}>{pack.name}</div>
+              <div className={styles.rowStatus}>
+                {getPackageStatusIcon(pack.status)}
+              </div>
+              <div>
+                <RxDotsVertical className={styles.itemActions} />
+              </div>
+            </ListRow>
+            {isPackageSelected(pack.id) && (
+              <Container>
+                <ContainerHeader className={styles.productsHeader}>
+                  Products
+                </ContainerHeader>
+                <div className={styles.productsContent}>
+                  {pack.products.map((product) => (
+                    <div className={styles.productWrapper}>
+                      <div>ID: {product.id}</div>
+                      <div>{product.productName}</div>
+                    </div>
+                  ))}
+                </div>
+              </Container>
+            )}
+          </>
         ))}
       </PageContainer>
     </>

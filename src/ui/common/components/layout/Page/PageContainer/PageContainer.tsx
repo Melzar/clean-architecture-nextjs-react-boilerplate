@@ -7,6 +7,6 @@ type Props = {
   className?: string;
 };
 
-export const PageContainer = ({ children, className }: Props) => (
+export const PageContainer = ({ children, className = '' }: Props) => (
   <div className={`${styles.pageContainer} ${className}`}>{children}</div>
 );

@@ -1,0 +1,10 @@
+@import 'src/ui/common/styles/colors.module';
+
+.widgetNeutral {
+  align-self: baseline;
+  background: $waikawa-gray-dark;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
