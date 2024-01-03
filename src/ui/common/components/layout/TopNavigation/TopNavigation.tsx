@@ -21,9 +21,7 @@ export const TopNavigation = ({ className }: Props) => {
   const { data: session } = useSession();
 
   return (
-    <nav
-      className={`flex flex-row justify-end items-center ${styles.topNavigation} ${className}`}
-    >
+    <nav className={`${styles.topNavigation} ${className}`}>
       {session && (
         <>
           <span className={styles.topNavigationItem}>
