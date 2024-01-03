@@ -46,6 +46,10 @@ TODO
 
 TODO
 
+### KNOWN ISSUES
+
+* Order of stylesheets combined with routing - [Github Issue here](https://github.com/vercel/next.js/issues/13092)
+
 ### STILL TODO
 
 TODO

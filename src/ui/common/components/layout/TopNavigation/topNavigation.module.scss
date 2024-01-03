@@ -8,6 +8,21 @@
   margin-right: 20px;
 }
 
+.topNavigationLogout {
+  align-items: center;
+  background: $mirage-dark;
+  border-radius: 25px;
+  display: flex;
+  height: 45px;
+  justify-content: center;
+  width: 45px;
+}
+
+.topNavigationLogoutIcon {
+  height: auto;
+  width: 30px;
+}
+
 .imageCircle {
   background: url('https://static.printler.com/media/photo/127862.jpg');
   background-size: cover;

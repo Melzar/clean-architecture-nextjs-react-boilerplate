@@ -1,9 +1,11 @@
+@import 'src/ui/common/styles/colors.module';
+
 .topNavigation {
   margin: 0 60px;
 }
 
 .adminSection {
-  background: radial-gradient(50.6% 50% at 50% 0%, #2c375e, #1d243e);
+  background: radial-gradient(50.6% 50% at 50% 0%, $rhino-light, $mirage);
   display: flex;
   flex: 1;
   flex-direction: column;

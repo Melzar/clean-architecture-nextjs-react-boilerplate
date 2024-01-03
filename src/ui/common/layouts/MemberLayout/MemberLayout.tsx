@@ -1,4 +1,7 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
+
+import styles from 'ui/common/layouts/AdminLayout/adminLayout.module.scss';
+import { TopNavigation } from 'ui/common/components/layout/TopNavigation/TopNavigation';
 
 type Props = {
   children: ReactNode;
@@ -6,11 +9,11 @@ type Props = {
 
 export const MemberLayout = ({ children }: Props) => {
   return (
-    <>
-      <aside />
-      <main className="xl:container xl:mx-auto flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="xl:mx-auto flex min-h-screen flex-row">
+      <section className={styles.adminSection}>
+        <TopNavigation className={styles.topNavigation} />
         {children}
-      </main>
-    </>
+      </section>
+    </main>
   );
 };

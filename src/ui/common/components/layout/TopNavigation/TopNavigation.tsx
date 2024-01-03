@@ -1,17 +1,13 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
-
-import { RiMoonClearFill } from 'react-icons/ri';
-
 import React from 'react';
+import { useSession } from 'next-auth/react';
+import { RiMoonClearFill } from 'react-icons/ri';
+import { MdOutlinePowerSettingsNew } from 'react-icons/md';
 
 import { useTopNavigation } from 'ui/common/components/layout/TopNavigation/topNavigation.hooks';
-
 import { Switch } from 'ui/common/components/toggles/Switch/Switch';
-
 import { Pill } from 'ui/common/components/pills/Pill/Pill';
-
 import { latoBold } from 'ui/common/assets/fonts/fonts';
 
 import styles from './topNavigation.module.scss';
@@ -21,7 +17,7 @@ type Props = {
 };
 
 export const TopNavigation = ({ className }: Props) => {
-  const { onThemeToggle } = useTopNavigation();
+  const { onThemeToggle, onLogoutClick } = useTopNavigation();
   const { data: session } = useSession();
 
   return (
@@ -49,6 +45,12 @@ export const TopNavigation = ({ className }: Props) => {
       >
         <RiMoonClearFill />
       </Switch>
+      <button
+        onClick={onLogoutClick}
+        className={`${styles.topNavigationLogout}`}
+      >
+        <MdOutlinePowerSettingsNew className={styles.topNavigationLogoutIcon} />
+      </button>
     </nav>
   );
 };

@@ -48,7 +48,7 @@
         },
         {
           "uuid": "307e1b6b-a9d0-40b0-9c14-18662739b4dc",
-          "body": "{\n  \"id\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"token\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"surname\": \"{{faker 'person.lastName'}}\",\n  \"role\": \"member\"\n}",
+          "body": "{\n  \"id\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"email\": \"{{faker 'internet.email' 25}}\",\n  \"token\": \"{{faker 'string.alphanumeric' 25}}\",\n  \"firstName\": \"{{faker 'person.firstName'}}\",\n  \"lastName\": \"{{faker 'person.lastName'}}\",\n  \"role\": \"member\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
