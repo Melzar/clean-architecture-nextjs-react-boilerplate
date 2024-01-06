@@ -37,6 +37,8 @@ next-env.d.ts
 
 .idea
 
+qodana.yaml
+
 # stryker temp files
 .stryker-tmp
 

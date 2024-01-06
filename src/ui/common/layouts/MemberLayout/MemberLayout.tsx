@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import styles from 'ui/common/layouts/AdminLayout/adminLayout.module.scss';
+import styles from 'ui/common/layouts/shared/layout.module.scss';
+
 import { TopNavigation } from 'ui/common/components/layout/TopNavigation/TopNavigation';
 
 type Props = {
@@ -9,8 +10,8 @@ type Props = {
 
 export const MemberLayout = ({ children }: Props) => {
   return (
-    <main className="xl:mx-auto flex min-h-screen flex-row">
-      <section className={styles.adminSection}>
+    <main className={`xl:mx-auto min-h-screen ${styles.layoutMain}`}>
+      <section className={styles.layoutSection}>
         <TopNavigation className={styles.topNavigation} />
         {children}
       </section>

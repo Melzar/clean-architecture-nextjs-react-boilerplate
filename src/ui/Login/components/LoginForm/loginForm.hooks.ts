@@ -1,29 +1,30 @@
 import { useRouter } from 'next/navigation';
 
-import { useLoginData } from 'ui/Login/login.data';
 import { useAuthentication } from 'ui/shared/Application/Authentication/authentication.hooks';
+import { APP_ROUTES } from 'ui/common/navigation/routes';
+import {
+  LOGIN_FIELD,
+  PASSWORD_FIELD,
+} from 'ui/Login/components/LoginForm/loginForm.consts';
 
-type UseLoginHook = {
+type UseLoginForm = {
   onSubmit: (formData: FormData) => void;
 };
 
-export const useLogin = (): UseLoginHook => {
+export const useLoginForm = (): UseLoginForm => {
   const { logIn } = useAuthentication();
   const router = useRouter();
 
-  // eslint-disable-next-line no-empty-pattern
-  const {} = useLoginData();
-
   const onSubmit = async (formData: FormData) => {
-    const email = (formData.get('login') as string) || '';
-    const password = (formData.get('password') as string) || '';
+    const email = (formData.get(LOGIN_FIELD) as string) || '';
+    const password = (formData.get(PASSWORD_FIELD) as string) || '';
 
     const result = await logIn({
       email,
       password,
     });
     if (result.ok) {
-      router.push('/');
+      router.push(APP_ROUTES.HOME);
     }
   };
 

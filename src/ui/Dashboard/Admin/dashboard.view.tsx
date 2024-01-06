@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 import { TiWarningOutline } from 'react-icons/ti';
@@ -10,7 +8,7 @@ import { ListRow } from 'ui/common/components/tables/ListRow/ListRow';
 
 import { getPackageStatusIcon } from 'ui/Packages/Admin/packages.partials';
 import { useDashboard } from 'ui/Dashboard/Admin/dashboard.hooks';
-import { DashboardMessage } from 'ui/Dashboard/Admin/component/DashboardMessage/DashboardMessage';
+import { DashboardMessage } from 'ui/Dashboard/Admin/components/DashboardMessage/DashboardMessage';
 
 import styles from 'ui/Dashboard/Admin/dashboard.module.scss';
 import { latoBold } from 'ui/common/assets/fonts/fonts';
@@ -22,13 +20,13 @@ import { WidgetTransparent } from 'ui/common/components/layout/Widget/WidgetTran
 import { WidgetHeader } from 'ui/common/components/typography/WidgetHeader/WidgetHeader';
 import { WidgetText } from 'ui/common/components/typography/WidgetText/WidgetText';
 
-export const DashboardView = () => {
+export const DashboardView = async () => {
   const {
     recentPackages,
     packagesRequiresAttention,
     deliveredPackages,
     packagesInTransit,
-  } = useDashboard();
+  } = await useDashboard();
 
   return (
     <PageHeader>

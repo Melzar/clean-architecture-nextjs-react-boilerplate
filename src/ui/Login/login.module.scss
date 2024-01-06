@@ -1,7 +1,18 @@
 @import 'src/ui/common/styles/colors.module';
 
 .container {
+  align-items: center;
   background-color: $mirage;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dark.container {

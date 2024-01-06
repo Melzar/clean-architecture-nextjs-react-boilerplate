@@ -1,11 +1,11 @@
-import { fetchClients } from 'ui/Clients/Admin/Clients/clients.actions';
+import { fetchClients } from 'ui/Clients/Admin/Clients/components/ClientsList/clientsList.actions';
 import { Client } from 'presentation/shared/Clients/models/Client';
 
-type UseClientsData = {
+type UseClientsListData = {
   getClients: () => Promise<Client[]>;
 };
 
-export const useClientsData = (): UseClientsData => {
+export const useClientsListData = (): UseClientsListData => {
   const getClients = async () => {
     return fetchClients();
   };

@@ -20,7 +20,7 @@ export const useAuthentication = (): UseAuthentication => {
       redirect: false,
     });
 
-    return response;
+    return response || { status: 403, error: 'Forbidden', ok: false, url: '' };
   };
 
   const logOut = async () => {

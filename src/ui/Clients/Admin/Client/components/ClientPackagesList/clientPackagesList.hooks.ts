@@ -1,39 +1,40 @@
-'use client';
-
 import { useEffect, useRef, useState } from 'react';
 
-import { usePackagesData } from 'ui/Packages/Admin/packages.data';
-import { Package } from 'presentation/shared/Packages/models/Package';
+import { useParams } from 'next/navigation';
 
-type UsePackagesHook = {
+import { Package } from 'presentation/shared/Packages/models/Package';
+import { useClientData } from 'ui/Clients/Admin/Client/client.data';
+
+type UseClientPackagesList = {
   packages: Package[];
   onRowClick: (packageId: string) => () => void;
   isPackageSelected: (packageId: string) => boolean;
 };
-
-export const usePackages = (): UsePackagesHook => {
+export const useClientPackagesList = (): UseClientPackagesList => {
   const initialPackagesSelection = useRef<Record<string, boolean>>({});
   const [packages, setPackages] = useState<Package[]>([]);
   const [packagesSelection, setPackagesSelection] = useState<
     Record<string, boolean>
   >({});
 
-  const { getPackages } = usePackagesData();
+  const { getClientPackages } = useClientData();
+
+  const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      const result = await getPackages();
+      const packagesResult = await getClientPackages(id as string);
 
       const selectedPackages: Record<string, boolean> = {};
 
-      result.forEach((pack) => {
+      packagesResult.forEach((pack) => {
         selectedPackages[pack.id] = false;
       });
 
       initialPackagesSelection.current = selectedPackages;
       setPackagesSelection(selectedPackages);
 
-      setPackages(result);
+      setPackages(packagesResult);
     })();
   }, []);
 

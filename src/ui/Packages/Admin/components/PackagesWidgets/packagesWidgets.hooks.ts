@@ -1,16 +1,16 @@
-import { useDashboardData } from 'ui/Dashboard/Admin/dashboard.data';
+import { usePackagesData } from 'ui/Packages/Admin/packages.data';
 import { Package } from 'presentation/shared/Packages/models/Package';
 
-type UseDashboard = {
+type UsePackagesWidgetsHook = {
   packagesRequiresAttention: number;
-  deliveredPackages: Package[];
-  recentPackages: Package[];
-  packagesInTransit: Package[];
+  recentPackages: number;
+  packagesInTransit: number;
+  deliveredPackages: number;
 };
-export const useDashboard = async (): Promise<UseDashboard> => {
-  const { getRecentPackages } = useDashboardData();
+export const usePackagesWidgets = async (): Promise<UsePackagesWidgetsHook> => {
+  const { getPackages } = usePackagesData();
 
-  const packages = await getRecentPackages();
+  const packages = await getPackages();
 
   const packagesRequiresAttention = packages.filter(
     (pack: Package) => pack.status === 'attention_needed'
@@ -19,17 +19,19 @@ export const useDashboard = async (): Promise<UseDashboard> => {
   const recentPackages = packages.filter(
     (pack: Package) => pack.status === 'processing'
   );
+
   const packagesInTransit = packages.filter(
     (pack: Package) => pack.status === 'in_transit'
   );
+
   const deliveredPackages = packages.filter(
     (pack: Package) => pack.status === 'delivered'
   );
 
   return {
     packagesRequiresAttention,
-    recentPackages,
-    deliveredPackages,
-    packagesInTransit,
+    recentPackages: recentPackages.length,
+    packagesInTransit: packagesInTransit.length,
+    deliveredPackages: deliveredPackages.length,
   };
 };
