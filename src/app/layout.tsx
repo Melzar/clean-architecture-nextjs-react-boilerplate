@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
 import { AuthenticationProvider } from 'ui/common/providers/authentication.provider';
-import { AppLayout } from 'ui/common/layouts/AppLayout/AppLayout';
 import { lato } from 'ui/common/assets/fonts/fonts';
 
 import './globals.scss';
@@ -17,9 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={lato.className}>
-        <AuthenticationProvider>
-          <AppLayout>{children}</AppLayout>
-        </AuthenticationProvider>
+        <AuthenticationProvider>{children}</AuthenticationProvider>
       </body>
     </html>
   );

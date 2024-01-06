@@ -2,7 +2,11 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { useAuthentication } from 'ui/shared/Application/Authentication/authentication.hooks';
 
-export const useSideNavigation = () => {
+type UseSideNavigationLinks = {
+  isActive: (path: string) => boolean;
+  onLogoutClick: () => void;
+};
+export const useSideNavigationLinks = (): UseSideNavigationLinks => {
   const { logOut } = useAuthentication();
   const router = useRouter();
 

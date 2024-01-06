@@ -1,15 +1,17 @@
-'use client';
-
 import { useTheme } from 'next-themes';
 
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
-import { useRouter } from 'next/navigation';
-
-import { THEME } from 'ui/common/consts/theme';
 import { useAuthentication } from 'ui/shared/Application/Authentication/authentication.hooks';
+import { THEME } from 'ui/common/consts/theme';
 
-export const useTopNavigation = () => {
+type UseTopNavigationActions = {
+  onThemeToggle: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onLogoutClick: () => void;
+};
+
+export const useTopNavigationActions = (): UseTopNavigationActions => {
   const { setTheme } = useTheme();
   const { logOut } = useAuthentication();
   const router = useRouter();

@@ -12,31 +12,3 @@
 .logo {
   width: 35px;
 }
-
-.navIcon {
-  height: auto;
-  width: 30px;
-}
-
-.active {
-  background: $mirage;
-  border-left: 5px $anakiwa solid;
-  color: $anakiwa;
-}
-
-.navItem {
-  align-items: center;
-  display: flex;
-  height: 60px;
-  justify-content: center;
-  width: 60px;
-
-  &:hover {
-    background: $mirage;
-  }
-}
-
-.navItemLogout {
-  margin-bottom: 15px;
-  margin-top: auto;
-}

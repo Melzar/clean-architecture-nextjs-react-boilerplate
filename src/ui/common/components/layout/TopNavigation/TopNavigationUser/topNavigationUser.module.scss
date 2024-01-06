@@ -1,0 +1,40 @@
+@import 'src/ui/common/styles/colors.module';
+
+.imageCircle {
+  background: url('https://static.printler.com/media/photo/127862.jpg');
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow:
+    $box-shadow-dark 0 4px 6px -1px,
+    $box-shadow-light 0 2px 4px -1px;
+  height: 45px;
+  margin-right: 20px;
+  width: 45px;
+}
+
+.status {
+  animation: pulse-green 2s infinite;
+  background: $mint-green;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 $mint-green-shadow;
+  height: 8px;
+  margin-right: 10px;
+  width: 8px;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 $mint-green-shadow;
+    transform: scale(0.95);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px $mint-green-shadow-0;
+    transform: scale(1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 $mint-green-shadow-0;
+    transform: scale(0.95);
+  }
+}
