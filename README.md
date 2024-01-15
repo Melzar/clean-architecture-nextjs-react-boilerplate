@@ -124,8 +124,7 @@ into one `presentation` model for specific screen
 
 ### STILL TODO
 
+* Add Diagrams
 * Add more tests for prepared code ( e2e and unit test )
 * Update exising tests
-* Add more stories for existing components
 * Add more functionality to existing project 
-* Add Diagrams

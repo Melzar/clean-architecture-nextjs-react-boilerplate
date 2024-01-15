@@ -2,6 +2,9 @@ import path from 'path';
 import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
+  features: {
+    experimentalNextRSC: true,
+  },
   core: {
     disableTelemetry: true,
   },
