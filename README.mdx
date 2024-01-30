@@ -31,6 +31,49 @@ import Flow3 from "./clean.diagram.flow3.svg";
     Project is a simple logistic dashboard for managing packages and clients.
     There are two separate roles `Admin` and `Member`.
 
+    ### USER STORIES
+    ````
+
+    ````
+    #### Member
+
+    TODO
+
+    #### Admin
+
+    >Given I'm Admin
+    >When I'm on Dashboard
+    >Then I can see recent new packages
+    >And I can see recent packages in transit
+    >And I can see packages delivered
+
+    >Given I'm Admin
+    >When I'm on clients screen
+    >Then I can see clients list
+
+    >Given I'm Admin
+    >When I'm on clients screen
+    >And I click on client item
+    >Then I'm navigated to client details screen
+
+    >Given I'm Admin
+    >When I'm on client details screen
+    >Then I can see client name
+    >And packages list
+
+    >Given I'm Admin
+    >When I'm on packages screen
+    >Then I can see packages list
+
+    >Given I'm Admin
+    >When I'm on packages screen
+    >And I click on package item
+    >Then I can see package products
+
+    >Given I'm Admin
+    >When I tap on logout button
+    >Then I'm navigated to login screen
+
     ### PREREQUISITES
 
     * `Yarn`
@@ -48,8 +91,9 @@ import Flow3 from "./clean.diagram.flow3.svg";
     * `Storybook`
 
     ### SETUP
-
-    * `Yarn install`
+    ````
+      yarn install
+    ````
 
     ### STRUCTURE
 
@@ -110,36 +154,38 @@ import Flow3 from "./clean.diagram.flow3.svg";
 
     * `Dependency injection` has access to every layer to provide proper abstractions implementations.
     * `UI` have access to `PRESENTATION ( MVP )` and `DATA STORE` layers
-    * `Product features` can be grouped into `Bounded Context`
-    * Given `Product features` do not have direct access to each other,
-    * If you need to have some cross product functionality then you need to define `shared` product feature.
+      * `Product features` can be grouped into `Bounded Context`
+      * Given `Product features` do not have direct access to each other,
+      * If you need to have some cross product functionality then you need to define `shared` product feature.
     * `PRESENTATION` have access to `DATA STORE` and `DOMAIN`
-    * `Presenters` can be also part of `Bounded Context` and also can be part of `shared` product feature
-    * `Presenters` can access data store in need to update data ( when fetching data from data sources ) or fetch it
+      * `Presenters` can be also part of `Bounded Context` and also can be part of `shared` product feature
+      * `Presenters` can access data store in need to update data ( when fetching data from data sources ) or fetch it
     * `DATA STORE` can't access any layer, it defines data structures and stores data mostly related to some framework
     * `DOMAIN LAYER` can't access any layer, it's the core of whole architecture. It defines structures and business logic
-    * `Mappers` are defined here and are responsible for mapping data source models into domain models in scope of repository
-    * `Use Cases`, `Scenarios`, `Interactors` defines business logic and communicates with repositories
-    * `Repositories` in domain are just abstractions / interfaces, not a specific implementation
+      * `Mappers` are defined here and are responsible for mapping data source models into domain models in scope of repository
+      * `Use Cases`, `Scenarios`, `Interactors` defines business logic and communicates with repositories
+      * `Repositories` in domain are just abstractions / interfaces, not a specific implementation
 
-    #### Architecture layers in details
+    ### ARCHITECTURE LAYERS
 
     Take a look at detailed diagrams for every layer for better understanding data flow and related structures
 
     <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Ui} alt={''} />
-    #
+    <br />
     <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Presentation} alt={''} />
-    #
+    <br />
     <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={DataStore} alt={''} />
-    #
+    <br />
     <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Domain} alt={''} />
-    #
+    <br />
     <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Data} alt={''} />
-    #
+    <br />
 
     ### HOW TO RUN LOCALLY
 
-    * `docker compose up`
+    ````
+    docker compose up
+    ````
     * To access app `http://localhost:3000/`
     * To access storybook `http://localhost:6006/`
 
@@ -153,17 +199,22 @@ import Flow3 from "./clean.diagram.flow3.svg";
     ### TESTING
 
     #### Unit Tests
-
-    1. Run `yarn test`
+    ````
+    yarn test
+    ````
 
     #### E2E Tests
-
-    1. Run `yarn test:e2e`
+    ````
+    yarn test:e2e
+    ````
 
     #### Mutational Tests
 
     1. Read guide [here](https://stryker-mutator.io/stryker/quickstart) to setup global dependencies
-    2. Run `yarn test:mutate` command
+
+    ````
+    yarn test:mutate
+    ````
 
     ### APPLIED CONCEPTS
 
@@ -210,6 +261,7 @@ import Flow3 from "./clean.diagram.flow3.svg";
     * Routing problem and jsx loading https://github.com/vercel/next.js/issues/60909
     * Slow routes loading https://github.com/vercel/next.js/issues/61259
     * There are still some weird issues over authentication...
+    * Project is sometimes still unstable, it's crashing here and there. I'll try to correct it in a free moment
 
     ### STILL TODO
 

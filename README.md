@@ -13,6 +13,48 @@ This repository is a real life example of Clean Architecture with use of `Next.j
 Project is a simple logistic dashboard for managing packages and clients.
 There are two separate roles `Admin` and `Member`.
 
+### USER STORIES
+
+##### Member
+
+    TODO
+
+##### Admin
+
+    Given I'm Admin
+    When I'm on Dashboard
+    Then I can see recent new packages
+    And I can see recent packages in transit
+    And I can see packages delivered
+    
+    Given I'm Admin
+    When I'm on clients screen
+    Then I can see clients list
+
+    Given I'm Admin
+    When I'm on clients screen
+    And I click on client item
+    Then I'm navigated to client details screen
+
+    Given I'm Admin
+    When I'm on client details screen
+    Then I can see client name
+    And packages list
+
+    Given I'm Admin
+    When I'm on packages screen
+    Then I can see packages list
+
+    Given I'm Admin
+    When I'm on packages screen
+    And I click on package item
+    Then I can see package products
+    
+    Given I'm Admin
+    When I tap on logout button
+    Then I'm navigated to login screen
+
+
 ### PREREQUISITES
 
 * `Yarn`
@@ -104,7 +146,7 @@ Whole approach defines layer access restrictions which are defined in `eslint`.
    * `Use Cases`, `Scenarios`, `Interactors` defines business logic and communicates with repositories
    * `Repositories` in domain are just abstractions / interfaces, not a specific implementation
 
-#### Architecture layers in details
+### ARCHITECTURE LAYERS
 
 Take a look at detailed diagrams for every layer for better understanding data flow and related structures
 
@@ -161,7 +203,7 @@ You can use any password
 `Repository` is an abstraction over data source. Defined actions which can be done over data source, and clear definition of
 input and output
 
-`Unit of work` is a wrapper around multiple repositories, you can use it if you have dependency between few data sources
+`Unit of work` is a wrapper around multiple repositories, you can use it if you have dependency between few data sources,
 and you would like to combine output into one model
 
 #### UseCase / Scenario / Interactor
@@ -187,10 +229,11 @@ into one `presentation` model for specific screen
 
 ### KNOWN ISSUES
 
-* Order of stylesheets combined with routing - [Github Issue here](https://github.com/vercel/next.js/issues/13092)
+* Order of stylesheets combined with routing - [GitHub Issue here](https://github.com/vercel/next.js/issues/13092)
 * Routing problem and jsx loading https://github.com/vercel/next.js/issues/60909
 * Slow routes loading https://github.com/vercel/next.js/issues/61259
 * There are still some weird issues over authentication...
+* Project is sometimes still unstable, it's crashing here and there. I'll try to correct it in a free moment
 
 ### STILL TODO
 

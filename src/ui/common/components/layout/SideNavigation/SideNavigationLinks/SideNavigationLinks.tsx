@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { MdDashboard, MdOutlinePowerSettingsNew } from 'react-icons/md';
+import { MdDashboard } from 'react-icons/md';
 import { PiPackageLight, PiUsersThreeLight } from 'react-icons/pi';
 import React from 'react';
 
@@ -11,7 +11,7 @@ import { APP_ADMIN_ROUTES } from 'ui/common/navigation/routes';
 import { useSideNavigationLinks } from 'ui/common/components/layout/SideNavigation/SideNavigationLinks/sideNavigationLinks.hooks';
 
 export const SideNavigationLinks = () => {
-  const { onLogoutClick, isActive } = useSideNavigationLinks();
+  const { isActive } = useSideNavigationLinks();
 
   return (
     <>
@@ -39,12 +39,6 @@ export const SideNavigationLinks = () => {
       >
         <PiPackageLight className={styles.navIcon} />
       </Link>
-      <button
-        onClick={onLogoutClick}
-        className={`${styles.navItem} ${styles.navItemLogout}`}
-      >
-        <MdOutlinePowerSettingsNew className={styles.navIcon} />
-      </button>
     </>
   );
 };
