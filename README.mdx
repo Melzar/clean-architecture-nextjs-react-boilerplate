@@ -1,18 +1,42 @@
 import { Meta } from "@storybook/blocks";
+import Image from "next/image";
+
+import Architecture from "./clean.diagram.architecture.svg";
+
+import Ui from "./clean.diagram.ui.svg";
+import Presentation from "./clean.diagram.presentation.svg";
+import DataStore from "./clean.diagram.dataStore.svg";
+import Domain from "./clean.diagram.domain.svg";
+import Data from "./clean.diagram.data.svg";
+import Flow from "./clean.diagram.flow.svg";
+import Flow2 from "./clean.diagram.flow2.svg";
+import Flow3 from "./clean.diagram.flow3.svg";
 
 <Meta title="Clean Architecture Next.js boilerplate" />
 
 <div className="sb-container">
   <div className='sb-section-title'>
-    # Clean Architecture Next.js boilerplate
+    # Clean Architecture Next.js Boilerplate
 
     ### DESCRIPTION
 
     This repository is a real life example of Clean Architecture with use of `Next.js` and `Typescript`
 
-    [//]: # (![Clean Architecture Diagram]&#40;clean.diagram.architecture.svg&#41;)
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Architecture} alt={''} />
 
-    ##### Technologies used
+    > Diagrams have copyrights, if you want to use it on larger scale, feel free to contact me.
+
+    ### BUSINESS CONTEXT
+
+    Project is a simple logistic dashboard for managing packages and clients.
+    There are two separate roles `Admin` and `Member`.
+
+    ### PREREQUISITES
+
+    * `Yarn`
+    * `Docker`
+
+    ### TECHNOLOGIES USED
 
     * `Typescript`
     * `Next.js 14`
@@ -23,7 +47,11 @@ import { Meta } from "@storybook/blocks";
     * `Playwright`
     * `Storybook`
 
-    ##### Structure
+    ### SETUP
+
+    * `Yarn install`
+
+    ### STRUCTURE
 
     1. app ( `Next.js app folder` )
 
@@ -41,36 +69,86 @@ import { Meta } from "@storybook/blocks";
 
     Contains definition of state like redux, zustand etc
 
-    4. domain
+    5. domain
 
     Contains definition of models, repositories, usecases etc
 
-    5. ioc
+    6. ioc
 
     Contains definition of dependency injection related structures ( Container and modules )
 
-    6. presentation
+    7. presentation
 
     Contains definition of presenters ( MVP ) and presenter related models
 
-    7. ui
+    8. ui
 
-    Contains definiton for user facing markup ( React.js ), server side components, styles etc
+    Contains definition for user facing markup ( React.js ), server side components, styles etc
 
-    ### PREREQUISITIES
+    ### DATA FLOW
 
-    * `Yarn`
-    * `Docker`
+    There is specific data flow applied for Clean architecture, and it's important to understand layers separation.
+    In this example you can see clean architecture with MVP ( Model View Presenter ) pattern as it seems like the best
+    solution long term when it comes to web apps development. There are few alternatives which you can see on diagram.
+    Code is focused on primary ( first proposal ).
 
-    ### SETUP
+    #### PRIMARY FLOW
 
-    * `Yarn install`
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Flow} alt={''} />
+
+    #### ALTERNATIVE FLOW
+
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Flow2} alt={''} />
+
+    #### ALTERNATIVE FLOW
+
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Flow3} alt={''} />
+
+    ### LAYERS RESTRICTIONS
+
+    Whole approach defines layer access restrictions which are defined in `eslint`.
+
+    * `Dependency injection` has access to every layer to provide proper abstractions implementations.
+    * `UI` have access to `PRESENTATION ( MVP )` and `DATA STORE` layers
+    * `Product features` can be grouped into `Bounded Context`
+    * Given `Product features` do not have direct access to each other,
+    * If you need to have some cross product functionality then you need to define `shared` product feature.
+    * `PRESENTATION` have access to `DATA STORE` and `DOMAIN`
+    * `Presenters` can be also part of `Bounded Context` and also can be part of `shared` product feature
+    * `Presenters` can access data store in need to update data ( when fetching data from data sources ) or fetch it
+    * `DATA STORE` can't access any layer, it defines data structures and stores data mostly related to some framework
+    * `DOMAIN LAYER` can't access any layer, it's the core of whole architecture. It defines structures and business logic
+    * `Mappers` are defined here and are responsible for mapping data source models into domain models in scope of repository
+    * `Use Cases`, `Scenarios`, `Interactors` defines business logic and communicates with repositories
+    * `Repositories` in domain are just abstractions / interfaces, not a specific implementation
+
+    #### Architecture layers in details
+
+    Take a look at detailed diagrams for every layer for better understanding data flow and related structures
+
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Ui} alt={''} />
+    #
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Presentation} alt={''} />
+    #
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={DataStore} alt={''} />
+    #
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Domain} alt={''} />
+    #
+    <Image  width={0} height={0} style={{ width: '100%', height: 'auto' }} src={Data} alt={''} />
+    #
 
     ### HOW TO RUN LOCALLY
 
     * `docker compose up`
     * To access app `http://localhost:3000/`
     * To access storybook `http://localhost:6006/`
+
+    Every role has its own account
+
+    * `member@clean.com`
+    * `admin@clean.com`
+
+    You can use any password
 
     ### TESTING
 
@@ -97,12 +175,15 @@ import { Meta } from "@storybook/blocks";
 
     `Request object` - holds data which is transferred between modules ( `DTO` ).
 
-    #### Repository
+    #### Repository / Unit of Work
 
     `Repository` is an abstraction over data source. Defined actions which can be done over data source, and clear definition of
     input and output
 
-    #### UseCase
+    `Unit of work` is a wrapper around multiple repositories, you can use it if you have dependency between few data sources
+    and you would like to combine output into one model
+
+    #### UseCase / Scenario / Interactor
 
     `UseCase` can be understood as operation performed by user which is based on a specific data source.
 
@@ -126,14 +207,16 @@ import { Meta } from "@storybook/blocks";
     ### KNOWN ISSUES
 
     * Order of stylesheets combined with routing - [Github Issue here](https://github.com/vercel/next.js/issues/13092)
+    * Routing problem and jsx loading https://github.com/vercel/next.js/issues/60909
+    * Slow routes loading https://github.com/vercel/next.js/issues/61259
     * There are still some weird issues over authentication...
 
     ### STILL TODO
 
-    * Add Diagrams
     * Add more tests for prepared code ( e2e and unit test )
     * Update exising tests
     * Add more functionality to existing project
+
   </div>
 </div>
 

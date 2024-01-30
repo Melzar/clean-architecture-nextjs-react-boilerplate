@@ -5,8 +5,9 @@ import React from 'react';
 import { FieldEmail } from 'ui/common/components/fields/FieldEmail/FieldEmail';
 import { FieldPassword } from 'ui/common/components/fields/FieldPassword/FieldPassword';
 import { PrimaryButton } from 'ui/common/components/buttons/PrimaryButton/PrimaryButton';
-import styles from 'ui/Login/login.module.scss';
 import { useLoginForm } from 'ui/Login/components/LoginForm/loginForm.hooks';
+
+import styles from 'ui/Login/login.module.scss';
 
 export const LoginForm = () => {
   const { onSubmit } = useLoginForm();

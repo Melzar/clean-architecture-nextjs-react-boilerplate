@@ -1,12 +1,24 @@
-# Clean Architecture Next JS Boilerplate
+# Clean Architecture Next.js Boilerplate
 
 ### DESCRIPTION
 
 This repository is a real life example of Clean Architecture with use of `Next.js` and `Typescript`
 
-[//]: # (![Clean Architecture Diagram]&#40;clean.diagram.architecture.svg&#41;)
+![Clean Architecture Diagram](clean.diagram.architecture.svg)
 
-##### Technologies used
+> Diagrams have copyrights, if you want to use it on larger scale, feel free to contact me.
+
+### BUSINESS CONTEXT
+
+Project is a simple logistic dashboard for managing packages and clients.
+There are two separate roles `Admin` and `Member`.
+
+### PREREQUISITES
+
+* `Yarn`
+* `Docker`
+
+### TECHNOLOGIES USED
 
 * `Typescript`
 * `Next.js 14`
@@ -17,7 +29,11 @@ This repository is a real life example of Clean Architecture with use of `Next.j
 * `Playwright`
 * `Storybook`
 
-##### Structure
+### SETUP
+
+* `Yarn install`
+
+### STRUCTURE
 
 1. app ( `Next.js app folder` )
 
@@ -35,36 +51,85 @@ This repository is a real life example of Clean Architecture with use of `Next.j
     
         Contains definition of state like redux, zustand etc
 
-4. domain
+5. domain
 
         Contains definition of models, repositories, usecases etc
 
-5. ioc
+6. ioc
 
         Contains definition of dependency injection related structures ( Container and modules )
 
-6. presentation
+7. presentation
 
         Contains definition of presenters ( MVP ) and presenter related models
 
-7. ui
+8. ui
 
-        Contains definiton for user facing markup ( React.js ), server side components, styles etc
+        Contains definition for user facing markup ( React.js ), server side components, styles etc
 
-### PREREQUISITIES
+### DATA FLOW
 
-* `Yarn`
-* `Docker`
+There is specific data flow applied for Clean architecture, and it's important to understand layers separation.
+In this example you can see clean architecture with MVP ( Model View Presenter ) pattern as it seems like the best 
+solution long term when it comes to web apps development. There are few alternatives which you can see on diagram.
+Code is focused on primary ( first proposal ).
 
-### SETUP
+#### PRIMARY FLOW
 
-* `Yarn install`
+![Clean Architecture Data Flow Diagram](clean.diagram.flow.svg)
+
+#### ALTERNATIVE FLOW
+
+![Clean Architecture Alternative Data Flow Diagram](clean.diagram.flow2.svg)
+
+#### ALTERNATIVE FLOW 
+
+![Clean Architecture Alternative Data Flow Diagram](clean.diagram.flow3.svg)
+
+### LAYERS RESTRICTIONS
+
+Whole approach defines layer access restrictions which are defined in `eslint`. 
+
+* `DEPENDENCY INJECTION` has access to every layer to provide proper abstractions implementations.
+* `UI` have access to `PRESENTATION ( MVP )` and `DATA STORE` layers
+   * `Product features` can be grouped into `Bounded Context`
+   * Given `Product features` do not have direct access to each other, 
+     * If you need to have some cross product functionality then you need to define `shared` product feature.
+* `PRESENTATION` have access to `DATA STORE` and `DOMAIN`
+   * `Presenters` can be also part of `Bounded Context` and also can be part of `shared` product feature
+   * `Presenters` can access data store in need to update data ( when fetching data from data sources ) or fetch it
+* `DATA STORE` can't access any layer, it defines data structures and stores data mostly related to some framework
+* `DOMAIN LAYER` can't access any layer, it's the core of whole architecture. It defines structures and business logic
+   * `Mappers` are defined here and are responsible for mapping data source models into domain models in scope of repository
+   * `Use Cases`, `Scenarios`, `Interactors` defines business logic and communicates with repositories
+   * `Repositories` in domain are just abstractions / interfaces, not a specific implementation
+
+#### Architecture layers in details
+
+Take a look at detailed diagrams for every layer for better understanding data flow and related structures
+
+![Clean Architecture UI Layer](clean.diagram.ui.svg)
+
+![Clean Architecture PRESENTATION Layer](clean.diagram.presentation.svg)
+
+![Clean Architecture DATA STORE Layer](clean.diagram.dataStore.svg)
+
+![Clean Architecture DOMAIN Layer](clean.diagram.domain.svg)
+
+![Clean Architecture DATA Layer](clean.diagram.data.svg)
 
 ### HOW TO RUN LOCALLY
 
 * `docker compose up`
 * To access app `http://localhost:3000/`
 * To access storybook `http://localhost:6006/`
+
+Every role has its own account
+
+* `member@clean.com`
+* `admin@clean.com`
+
+You can use any password
 
 ### TESTING
 
@@ -91,12 +156,15 @@ This repository is a real life example of Clean Architecture with use of `Next.j
 
 `Request object` - holds data which is transferred between modules ( `DTO` ). 
 
-#### Repository
+#### Repository / Unit of Work
 
 `Repository` is an abstraction over data source. Defined actions which can be done over data source, and clear definition of
 input and output
 
-#### UseCase
+`Unit of work` is a wrapper around multiple repositories, you can use it if you have dependency between few data sources
+and you would like to combine output into one model
+
+#### UseCase / Scenario / Interactor
 
 `UseCase` can be understood as operation performed by user which is based on a specific data source. 
 
@@ -120,11 +188,12 @@ into one `presentation` model for specific screen
 ### KNOWN ISSUES
 
 * Order of stylesheets combined with routing - [Github Issue here](https://github.com/vercel/next.js/issues/13092)
+* Routing problem and jsx loading https://github.com/vercel/next.js/issues/60909
+* Slow routes loading https://github.com/vercel/next.js/issues/61259
 * There are still some weird issues over authentication...
 
 ### STILL TODO
 
-* Add Diagrams
 * Add more tests for prepared code ( e2e and unit test )
 * Update exising tests
 * Add more functionality to existing project 
