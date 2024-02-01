@@ -9,7 +9,7 @@ import { ClientsList } from 'ui/Clients/Admin/Clients/components/ClientsList/Cli
 
 export const ClientsView = () => (
   <>
-    <PageHeader>
+    <PageHeader testId="clientsScreen">
       <PageHeading>Clients</PageHeading>
     </PageHeader>
     <PageContainer>

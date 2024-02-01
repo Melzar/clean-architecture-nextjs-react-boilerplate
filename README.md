@@ -23,9 +23,9 @@ There are two separate roles `Admin` and `Member`.
 
     Given I'm Admin
     When I'm on Dashboard
-    Then I can see recent new packages
-    And I can see recent packages in transit
-    And I can see packages delivered
+    Then I see recent new packages
+    And I see recent packages in transit
+    And I see packages delivered
     
     Given I'm Admin
     When I'm on clients screen

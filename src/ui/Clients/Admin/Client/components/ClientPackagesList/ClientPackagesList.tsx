@@ -18,9 +18,13 @@ export const ClientPackagesList = () => {
 
   return (
     <>
-      {packages.map((pack) => (
+      {packages.map((pack, index) => (
         <>
-          <ListRow key={pack.id} onClick={onRowClick(pack.id)}>
+          <ListRow
+            key={pack.id}
+            onClick={onRowClick(pack.id)}
+            testId={`client-package-row-${index}`}
+          >
             <div className={styles.rowId}>{pack.id}</div>
             <div className={styles.rowName}>{pack.name}</div>
             <div className={styles.rowStatus}>

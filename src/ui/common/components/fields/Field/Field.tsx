@@ -11,6 +11,7 @@ type Props = {
   style?: CSSProperties;
   required?: boolean;
   value?: string;
+  testId?: string;
 };
 export const Field = ({
   type,
@@ -21,6 +22,7 @@ export const Field = ({
   value,
   onChange,
   name,
+  testId,
 }: Props) => {
   return (
     <input
@@ -32,6 +34,7 @@ export const Field = ({
       onChange={onChange}
       value={value}
       name={name}
+      data-testid={testId}
     />
   );
 };

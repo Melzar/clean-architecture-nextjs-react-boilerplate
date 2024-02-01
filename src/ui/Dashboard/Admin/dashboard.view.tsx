@@ -29,7 +29,7 @@ export const DashboardView = async () => {
   } = await useDashboard();
 
   return (
-    <PageHeader>
+    <PageHeader testId="dashboardScreen">
       <PageHeading className={styles.pageHeadingDashboard}>
         Dashboard
       </PageHeading>
@@ -37,7 +37,7 @@ export const DashboardView = async () => {
         className={`${styles.widgetHeadingDashboard} ${styles.widgetHeadingAttention}`}
       >
         {packagesRequiresAttention > 0 && (
-          <DashboardMessage>
+          <DashboardMessage testId="attention-message">
             <TiWarningOutline
               className={`${styles.warningMessageIcon} ${styles.warningStatus}`}
             />
@@ -53,19 +53,25 @@ export const DashboardView = async () => {
         <WidgetTransparent
           className={`${styles.widgetDashboard} ${styles.widgetTransparentDashboard}`}
         >
-          <WidgetHeader>{recentPackages.length}</WidgetHeader>
+          <WidgetHeader testId="new-packages-number">
+            {recentPackages.length}
+          </WidgetHeader>
           <WidgetText>New Today</WidgetText>
         </WidgetTransparent>
         <WidgetTransparent
           className={`${styles.widgetDashboard} ${styles.widgetTransparentDashboard}`}
         >
-          <WidgetHeader>{packagesInTransit.length}</WidgetHeader>
+          <WidgetHeader testId="in-transit-packages-number">
+            {packagesInTransit.length}
+          </WidgetHeader>
           <WidgetText>In Transit Today</WidgetText>
         </WidgetTransparent>
         <WidgetTransparent
           className={`${styles.widgetDashboard} ${styles.widgetTransparentDashboard}`}
         >
-          <WidgetHeader>{deliveredPackages.length}</WidgetHeader>
+          <WidgetHeader testId="delivered-packages-number">
+            {deliveredPackages.length}
+          </WidgetHeader>
           <WidgetText>Delivered Today</WidgetText>
         </WidgetTransparent>
       </WidgetHeading>
@@ -73,8 +79,12 @@ export const DashboardView = async () => {
       <WidgetHeading className={styles.widgetHeadingDashboard}>
         <WidgetNeutral className={styles.widgetDashboard}>
           <ContainerHeader>Recent New Packages</ContainerHeader>
-          {recentPackages.map((pack) => (
-            <ListRow key={pack.id} className={styles.widgetRow}>
+          {recentPackages.map((pack, index) => (
+            <ListRow
+              key={pack.id}
+              testId={`new-package-${index}`}
+              className={styles.widgetRow}
+            >
               <div>{pack.name}</div>
               <div className={styles.rowStatus}>
                 {getPackageStatusIcon(pack.status)}
@@ -84,8 +94,12 @@ export const DashboardView = async () => {
         </WidgetNeutral>
         <WidgetNeutral className={styles.widgetDashboard}>
           <ContainerHeader>Recent Packages In Transit</ContainerHeader>
-          {packagesInTransit.map((pack) => (
-            <ListRow key={pack.id} className={styles.widgetRow}>
+          {packagesInTransit.map((pack, index) => (
+            <ListRow
+              key={pack.id}
+              testId={`in-transit-package-${index}`}
+              className={styles.widgetRow}
+            >
               <div>{pack.name}</div>
               <div className={styles.rowStatus}>
                 {getPackageStatusIcon(pack.status)}
@@ -95,8 +109,12 @@ export const DashboardView = async () => {
         </WidgetNeutral>
         <WidgetNeutral className={styles.widgetDashboard}>
           <ContainerHeader>Recent Packages Delivered</ContainerHeader>
-          {deliveredPackages.map((pack) => (
-            <ListRow key={pack.id} className={styles.widgetRow}>
+          {deliveredPackages.map((pack, index) => (
+            <ListRow
+              key={pack.id}
+              testId={`delivered-package-${index}`}
+              className={styles.widgetRow}
+            >
               <div>{pack.name}</div>
               <div className={styles.rowStatus}>
                 {getPackageStatusIcon(pack.status)}

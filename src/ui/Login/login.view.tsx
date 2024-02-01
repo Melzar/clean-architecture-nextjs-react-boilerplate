@@ -7,6 +7,7 @@ import { LoginForm } from 'ui/Login/components/LoginForm/loginForm';
 
 export const LoginView = () => (
   <main
+    data-testid="loginScreen"
     className={`xl:container xl:mx-auto min-h-screen p-24 ${styles.container}`}
   >
     <ContainerBox className={styles.loginContainer}>

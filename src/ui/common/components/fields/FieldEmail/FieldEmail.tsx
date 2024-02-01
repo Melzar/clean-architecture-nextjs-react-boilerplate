@@ -10,6 +10,7 @@ type Props = {
   style?: CSSProperties;
   required?: boolean;
   value?: string;
+  testId?: string;
 };
 export const FieldEmail = ({
   placeholder,
@@ -19,6 +20,7 @@ export const FieldEmail = ({
   onChange,
   value,
   name,
+  testId,
 }: Props) => {
   return (
     <Field
@@ -30,6 +32,7 @@ export const FieldEmail = ({
       onChange={onChange}
       value={value}
       name={name}
+      testId={testId}
     />
   );
 };

@@ -9,6 +9,7 @@ type Props = {
   className?: string;
   style?: CSSProperties;
   required?: boolean;
+  testId?: string;
 };
 export const FieldPassword = ({
   placeholder,
@@ -17,6 +18,7 @@ export const FieldPassword = ({
   required,
   onChange,
   name,
+  testId,
 }: Props) => {
   return (
     <Field
@@ -27,6 +29,7 @@ export const FieldPassword = ({
       required={required}
       onChange={onChange}
       name={name}
+      testId={testId}
     />
   );
 };

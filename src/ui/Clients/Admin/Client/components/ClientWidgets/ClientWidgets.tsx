@@ -34,28 +34,36 @@ export const ClientWidgets = async (props: Props) => {
       <WidgetNew>
         <WidgetContent>
           <WidgetSubHeader>New today</WidgetSubHeader>
-          <WidgetHeader>{recentPackages}</WidgetHeader>
+          <WidgetHeader testId="client-new-packages">
+            {recentPackages}
+          </WidgetHeader>
         </WidgetContent>
         <LuPackageSearch className={styles.widgetIcon} />
       </WidgetNew>
       <WidgetDelivery>
         <WidgetContent>
           <WidgetSubHeader>Still in delivery</WidgetSubHeader>
-          <WidgetHeader>{packagesInTransit}</WidgetHeader>
+          <WidgetHeader testId="client-in-delivery-packages">
+            {packagesInTransit}
+          </WidgetHeader>
         </WidgetContent>
         <LiaShippingFastSolid className={styles.widgetIcon} />
       </WidgetDelivery>
       <WidgetAttention>
         <WidgetContent>
           <WidgetSubHeader>Attention Needed</WidgetSubHeader>
-          <WidgetHeader>{packagesRequiresAttention}</WidgetHeader>
+          <WidgetHeader testId="client-attention-needed-packages">
+            {packagesRequiresAttention}
+          </WidgetHeader>
         </WidgetContent>
         <TiWarningOutline className={styles.widgetIcon} />
       </WidgetAttention>
       <WidgetCompleted>
         <WidgetContent>
           <WidgetSubHeader>Completed today</WidgetSubHeader>
-          <WidgetHeader>{deliveredPackages}</WidgetHeader>
+          <WidgetHeader testId="client-completed-packages">
+            {deliveredPackages}
+          </WidgetHeader>
         </WidgetContent>
         <LuPackageCheck className={styles.widgetIcon} />
       </WidgetCompleted>

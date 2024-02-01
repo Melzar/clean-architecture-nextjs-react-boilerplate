@@ -17,9 +17,13 @@ export const PackagesList = () => {
 
   return (
     <>
-      {packages.map((pack: Package) => (
+      {packages.map((pack: Package, index) => (
         <>
-          <ListRow key={pack.id} onClick={onRowClick(pack.id)}>
+          <ListRow
+            key={pack.id}
+            onClick={onRowClick(pack.id)}
+            testId={`package-row-${index}`}
+          >
             <div className={styles.rowId}>{pack.id}</div>
             <div className={styles.rowName}>{pack.name}</div>
             <div className={styles.rowStatus}>

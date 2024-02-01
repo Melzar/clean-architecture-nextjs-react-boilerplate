@@ -14,7 +14,7 @@ type Props = {
 };
 export const ClientView = ({ clientId }: Props) => (
   <>
-    <PageHeader>
+    <PageHeader testId="clientDetailsScreen">
       <ClientPageHeading clientId={clientId} />
       <WidgetHeading>
         <ClientWidgets clientId={clientId} />

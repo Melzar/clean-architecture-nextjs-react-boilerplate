@@ -12,7 +12,7 @@ import { PackagesWidgets } from 'ui/Packages/Admin/components/PackagesWidgets/Pa
 
 export const PackagesView = async () => (
   <>
-    <PageHeader>
+    <PageHeader testId="packagesScreen">
       <PageHeading>Packages</PageHeading>
       <WidgetHeading>
         <PackagesWidgets />

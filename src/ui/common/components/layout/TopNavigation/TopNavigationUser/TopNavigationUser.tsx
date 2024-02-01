@@ -18,7 +18,10 @@ export const TopNavigationUser = async () => {
           <span className={latoBold.className}>{session.meta.fullName}</span>
         </span>
         <div className={styles.imageCircle} />
-        <Pill className={topNavigationStyles.topNavigationItem}>
+        <Pill
+          className={topNavigationStyles.topNavigationItem}
+          testId="user-role"
+        >
           <span className={styles.status} />
           You&apos;re {session.meta.role}
         </Pill>

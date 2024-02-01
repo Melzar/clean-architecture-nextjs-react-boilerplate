@@ -14,9 +14,18 @@ export const LoginForm = () => {
 
   return (
     <form action={onSubmit}>
-      <FieldEmail placeholder="Email" name="login" required />
-      <FieldPassword placeholder="Password" name="password" required />
-      <PrimaryButton className={styles.signInButton} type="submit">
+      <FieldEmail placeholder="Email" name="login" testId="login" required />
+      <FieldPassword
+        placeholder="Password"
+        name="password"
+        testId="password"
+        required
+      />
+      <PrimaryButton
+        className={styles.signInButton}
+        type="submit"
+        testId="signIn"
+      >
         Sign in
       </PrimaryButton>
     </form>

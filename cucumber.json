@@ -7,7 +7,7 @@
     "require": [
       "e2e/steps/**/*.ts"
     ],
-    "parallel": 2,
+    "parallel": 3,
     "requireModule": ["ts-node/register"],
     "format": ["progress"]
   }

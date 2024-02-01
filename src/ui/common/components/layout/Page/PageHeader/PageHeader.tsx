@@ -3,8 +3,11 @@ import styles from 'ui/common/components/layout/Page/PageHeader/pageHeader.modul
 type Props = {
   children: React.ReactNode;
   className?: string;
+  testId?: string;
 };
 
-export const PageHeader = ({ children, className }: Props) => (
-  <div className={`${styles.pageHeader} ${className}`}>{children}</div>
+export const PageHeader = ({ children, className, testId }: Props) => (
+  <div className={`${styles.pageHeader} ${className}`} data-testid={testId}>
+    {children}
+  </div>
 );

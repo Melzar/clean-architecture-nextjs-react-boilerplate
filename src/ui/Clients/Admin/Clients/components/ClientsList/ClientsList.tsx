@@ -15,13 +15,13 @@ export const ClientsList = async () => {
 
   return (
     <>
-      {clients.map((client) => (
+      {clients.map((client, index) => (
         <Link
           href={APP_ADMIN_ROUTES.CLIENT(client.id)}
           key={client.id}
           className={styles.row}
         >
-          <ListRow key={client.id}>
+          <ListRow key={client.id} testId={`client-row-${index}`}>
             <div className={styles.rowId}>{client.id}</div>
             <div className={styles.rowName}>
               {client.firstName} {client.lastName}
