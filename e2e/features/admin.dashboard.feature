@@ -19,17 +19,3 @@ Feature: Admin Dashboard screen
   Scenario: Admin see attention message
     * I see message with number of packages requires attention
 
-
-#
-#Given I'm Admin
-#When I'm on packages screen
-#Then I can see packages list
-#
-#Given I'm Admin
-#When I'm on packages screen
-#And I click on package item
-#Then I can see package products
-#
-#Given I'm Admin
-#When I tap on logout button
-#Then I'm navigated to login screen
