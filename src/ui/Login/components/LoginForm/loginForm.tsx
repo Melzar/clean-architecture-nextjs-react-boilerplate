@@ -8,16 +8,30 @@ import { PrimaryButton } from 'ui/common/components/buttons/PrimaryButton/Primar
 import { useLoginForm } from 'ui/Login/components/LoginForm/loginForm.hooks';
 
 import styles from 'ui/Login/login.module.scss';
+import {
+  FIELD_PLACEHOLDER_EMAIL_TEXT,
+  FIELD_PLACEHOLDER_PASSWORD_TEXT,
+  SIGN_IN_BUTTON_LABEL,
+} from 'ui/Login/components/LoginForm/loginForm.dictionary';
+import {
+  LOGIN_FIELD,
+  PASSWORD_FIELD,
+} from 'ui/Login/components/LoginForm/loginForm.consts';
 
 export const LoginForm = () => {
   const { onSubmit } = useLoginForm();
 
   return (
     <form action={onSubmit}>
-      <FieldEmail placeholder="Email" name="login" testId="login" required />
+      <FieldEmail
+        placeholder={FIELD_PLACEHOLDER_EMAIL_TEXT}
+        name={LOGIN_FIELD}
+        testId="login"
+        required
+      />
       <FieldPassword
-        placeholder="Password"
-        name="password"
+        placeholder={FIELD_PLACEHOLDER_PASSWORD_TEXT}
+        name={PASSWORD_FIELD}
         testId="password"
         required
       />
@@ -26,7 +40,7 @@ export const LoginForm = () => {
         type="submit"
         testId="signIn"
       >
-        Sign in
+        {SIGN_IN_BUTTON_LABEL}
       </PrimaryButton>
     </form>
   );

@@ -9,18 +9,22 @@ import { PageSubHeader } from 'ui/common/components/layout/Page/PageSubHeader/Pa
 import { WidgetHeading } from 'ui/common/components/layout/Widget/WidgetHeading/WidgetHeading';
 import { PackagesList } from 'ui/Packages/Admin/components/PackagesList/PackagesList';
 import { PackagesWidgets } from 'ui/Packages/Admin/components/PackagesWidgets/PackagesWidgets';
+import {
+  LATEST_PACKAGES_TEXT_SECTION_HEADER,
+  PACKAGES_TEXT_HEADER,
+} from 'ui/Packages/Admin/packages.dictionary';
 
 export const PackagesView = async () => (
   <>
     <PageHeader testId="packagesScreen">
-      <PageHeading>Packages</PageHeading>
+      <PageHeading>{PACKAGES_TEXT_HEADER}</PageHeading>
       <WidgetHeading>
         <PackagesWidgets />
       </WidgetHeading>
     </PageHeader>
     <PageContainer>
       <PageSubHeader>
-        <SectionHeader>Latest packages</SectionHeader>
+        <SectionHeader>{LATEST_PACKAGES_TEXT_SECTION_HEADER}</SectionHeader>
       </PageSubHeader>
       <PackagesList />
     </PageContainer>

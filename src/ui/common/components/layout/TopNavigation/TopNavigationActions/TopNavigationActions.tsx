@@ -8,6 +8,7 @@ import topNavigationStyles from 'ui/common/components/layout/TopNavigation/topNa
 import styles from 'ui/common/components/layout/TopNavigation/TopNavigationActions/topNavigationActions.module.scss';
 import { Switch } from 'ui/common/components/toggles/Switch/Switch';
 import { useTopNavigationActions } from 'ui/common/components/layout/TopNavigation/TopNavigationActions/topNavigationActions.hooks';
+import { SWITCH_NAME } from 'ui/common/components/layout/TopNavigation/TopNavigationActions/topNavigationActions.consts';
 
 export const TopNavigationActions = () => {
   const { onThemeToggle, onLogoutClick } = useTopNavigationActions();
@@ -15,7 +16,7 @@ export const TopNavigationActions = () => {
     <>
       <Switch
         className={topNavigationStyles.topNavigationItem}
-        name="theme"
+        name={SWITCH_NAME}
         id="theme"
         onChange={onThemeToggle}
       >

@@ -18,6 +18,12 @@ import { WidgetAttention } from 'ui/common/components/layout/Widget/WidgetAttent
 import { WidgetCompleted } from 'ui/common/components/layout/Widget/WidgetCompleted/widgetCompleted';
 
 import { usePackagesWidgets } from 'ui/Packages/Admin/components/PackagesWidgets/packagesWidgets.hooks';
+import {
+  ATTENTION_TEXT_HEADER,
+  COMPLETED_TODAY_TEXT_HEADER,
+  IN_DELIVERY_TEXT_HEADER,
+  NEW_TODAY_TEXT_HEADER,
+} from 'ui/Packages/Admin/components/PackagesWidgets/packagesWidgets.dictionary';
 
 export const PackagesWidgets = async () => {
   const {
@@ -31,14 +37,14 @@ export const PackagesWidgets = async () => {
     <>
       <WidgetNew>
         <WidgetContent>
-          <WidgetSubHeader>New today</WidgetSubHeader>
+          <WidgetSubHeader>{NEW_TODAY_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="new-packages">{recentPackages}</WidgetHeader>
         </WidgetContent>
         <LuPackageSearch className={styles.widgetIcon} />
       </WidgetNew>
       <WidgetDelivery>
         <WidgetContent>
-          <WidgetSubHeader>Still in delivery</WidgetSubHeader>
+          <WidgetSubHeader>{IN_DELIVERY_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="in-delivery-packages">
             {packagesInTransit}
           </WidgetHeader>
@@ -47,7 +53,7 @@ export const PackagesWidgets = async () => {
       </WidgetDelivery>
       <WidgetAttention>
         <WidgetContent>
-          <WidgetSubHeader>Attention Needed</WidgetSubHeader>
+          <WidgetSubHeader>{ATTENTION_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="attention-needed-packages">
             {packagesRequiresAttention}
           </WidgetHeader>
@@ -56,7 +62,7 @@ export const PackagesWidgets = async () => {
       </WidgetAttention>
       <WidgetCompleted>
         <WidgetContent>
-          <WidgetSubHeader>Completed today</WidgetSubHeader>
+          <WidgetSubHeader>{COMPLETED_TODAY_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="completed-packages">
             {deliveredPackages}
           </WidgetHeader>

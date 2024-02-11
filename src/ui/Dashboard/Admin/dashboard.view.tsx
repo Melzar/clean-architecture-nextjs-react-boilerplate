@@ -19,6 +19,16 @@ import { ContainerHeader } from 'ui/common/components/typography/ContainerHeader
 import { WidgetTransparent } from 'ui/common/components/layout/Widget/WidgetTransparent/WidgetTransparent';
 import { WidgetHeader } from 'ui/common/components/typography/WidgetHeader/WidgetHeader';
 import { WidgetText } from 'ui/common/components/typography/WidgetText/WidgetText';
+import {
+  DASHBOARD_TEXT_HEADER,
+  DELIVERED_TODAY_WIDGET_TEXT,
+  IN_TRANSIT_TODAY_WIDGET_TEXT,
+  NEW_TODAY_WIDGET_TEXT,
+  RECENT_NEW_PACKAGES_HEADER_TEXT,
+  RECENT_PACKAGES_DELIVERED_HEADER_TEXT,
+  RECENT_PACKAGES_IN_TRANSIT_HEADER_TEXT,
+  REQUIRES_ATTENTION_TEXT,
+} from 'ui/Dashboard/Admin/dashboard.dictionary';
 
 export const DashboardView = async () => {
   const {
@@ -31,7 +41,7 @@ export const DashboardView = async () => {
   return (
     <PageHeader testId="dashboardScreen">
       <PageHeading className={styles.pageHeadingDashboard}>
-        Dashboard
+        {DASHBOARD_TEXT_HEADER}
       </PageHeading>
       <WidgetHeading
         className={`${styles.widgetHeadingDashboard} ${styles.widgetHeadingAttention}`}
@@ -44,8 +54,8 @@ export const DashboardView = async () => {
             <span className={`${latoBold.className} ${styles.warningNumber}`}>
               {packagesRequiresAttention}
             </span>
-            {pluralizePackages(packagesRequiresAttention)} requires your
-            attention!
+            {pluralizePackages(packagesRequiresAttention)}{' '}
+            {REQUIRES_ATTENTION_TEXT}
           </DashboardMessage>
         )}
       </WidgetHeading>
@@ -56,7 +66,7 @@ export const DashboardView = async () => {
           <WidgetHeader testId="new-packages-number">
             {recentPackages.length}
           </WidgetHeader>
-          <WidgetText>New Today</WidgetText>
+          <WidgetText>{NEW_TODAY_WIDGET_TEXT}</WidgetText>
         </WidgetTransparent>
         <WidgetTransparent
           className={`${styles.widgetDashboard} ${styles.widgetTransparentDashboard}`}
@@ -64,7 +74,7 @@ export const DashboardView = async () => {
           <WidgetHeader testId="in-transit-packages-number">
             {packagesInTransit.length}
           </WidgetHeader>
-          <WidgetText>In Transit Today</WidgetText>
+          <WidgetText>{IN_TRANSIT_TODAY_WIDGET_TEXT}</WidgetText>
         </WidgetTransparent>
         <WidgetTransparent
           className={`${styles.widgetDashboard} ${styles.widgetTransparentDashboard}`}
@@ -72,13 +82,13 @@ export const DashboardView = async () => {
           <WidgetHeader testId="delivered-packages-number">
             {deliveredPackages.length}
           </WidgetHeader>
-          <WidgetText>Delivered Today</WidgetText>
+          <WidgetText>{DELIVERED_TODAY_WIDGET_TEXT}</WidgetText>
         </WidgetTransparent>
       </WidgetHeading>
 
       <WidgetHeading className={styles.widgetHeadingDashboard}>
         <WidgetNeutral className={styles.widgetDashboard}>
-          <ContainerHeader>Recent New Packages</ContainerHeader>
+          <ContainerHeader>{RECENT_NEW_PACKAGES_HEADER_TEXT}</ContainerHeader>
           {recentPackages.map((pack, index) => (
             <ListRow
               key={pack.id}
@@ -93,7 +103,9 @@ export const DashboardView = async () => {
           ))}
         </WidgetNeutral>
         <WidgetNeutral className={styles.widgetDashboard}>
-          <ContainerHeader>Recent Packages In Transit</ContainerHeader>
+          <ContainerHeader>
+            {RECENT_PACKAGES_IN_TRANSIT_HEADER_TEXT}
+          </ContainerHeader>
           {packagesInTransit.map((pack, index) => (
             <ListRow
               key={pack.id}
@@ -108,7 +120,9 @@ export const DashboardView = async () => {
           ))}
         </WidgetNeutral>
         <WidgetNeutral className={styles.widgetDashboard}>
-          <ContainerHeader>Recent Packages Delivered</ContainerHeader>
+          <ContainerHeader>
+            {RECENT_PACKAGES_DELIVERED_HEADER_TEXT}
+          </ContainerHeader>
           {deliveredPackages.map((pack, index) => (
             <ListRow
               key={pack.id}

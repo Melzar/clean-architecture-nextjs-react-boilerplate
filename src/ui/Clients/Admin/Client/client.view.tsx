@@ -8,6 +8,7 @@ import { WidgetHeading } from 'ui/common/components/layout/Widget/WidgetHeading/
 import { ClientPageHeading } from 'ui/Clients/Admin/Client/components/ClientPageHeading/ClientPageHeading';
 import { ClientPackagesList } from 'ui/Clients/Admin/Client/components/ClientPackagesList/ClientPackagesList';
 import { ClientWidgets } from 'ui/Clients/Admin/Client/components/ClientWidgets/ClientWidgets';
+import { CLIENT_SECTION_HEADER_TEXT } from 'ui/Clients/Admin/Client/client.dictionary';
 
 type Props = {
   clientId: string;
@@ -22,7 +23,7 @@ export const ClientView = ({ clientId }: Props) => (
     </PageHeader>
     <PageContainer>
       <PageSubHeader>
-        <SectionHeader>Recent client packages</SectionHeader>
+        <SectionHeader>{CLIENT_SECTION_HEADER_TEXT}</SectionHeader>
       </PageSubHeader>
       <ClientPackagesList />
     </PageContainer>

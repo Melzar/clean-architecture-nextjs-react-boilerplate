@@ -17,6 +17,12 @@ import { WidgetAttention } from 'ui/common/components/layout/Widget/WidgetAttent
 
 import { WidgetCompleted } from 'ui/common/components/layout/Widget/WidgetCompleted/widgetCompleted';
 import { useClientWidgets } from 'ui/Clients/Admin/Client/components/ClientWidgets/clientWidgets.hooks';
+import {
+  ATTENTION_TEXT_HEADER,
+  COMPLETED_TODAY_TEXT_HEADER,
+  IN_DELIVERY_TEXT_HEADER,
+  NEW_TODAY_TEXT_HEADER,
+} from 'ui/Clients/Admin/Client/components/ClientWidgets/clientWidgets.dictionary';
 
 export type Props = {
   clientId: string;
@@ -33,7 +39,7 @@ export const ClientWidgets = async (props: Props) => {
     <>
       <WidgetNew>
         <WidgetContent>
-          <WidgetSubHeader>New today</WidgetSubHeader>
+          <WidgetSubHeader>{NEW_TODAY_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="client-new-packages">
             {recentPackages}
           </WidgetHeader>
@@ -42,7 +48,7 @@ export const ClientWidgets = async (props: Props) => {
       </WidgetNew>
       <WidgetDelivery>
         <WidgetContent>
-          <WidgetSubHeader>Still in delivery</WidgetSubHeader>
+          <WidgetSubHeader>{IN_DELIVERY_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="client-in-delivery-packages">
             {packagesInTransit}
           </WidgetHeader>
@@ -51,7 +57,7 @@ export const ClientWidgets = async (props: Props) => {
       </WidgetDelivery>
       <WidgetAttention>
         <WidgetContent>
-          <WidgetSubHeader>Attention Needed</WidgetSubHeader>
+          <WidgetSubHeader>{ATTENTION_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="client-attention-needed-packages">
             {packagesRequiresAttention}
           </WidgetHeader>
@@ -60,7 +66,7 @@ export const ClientWidgets = async (props: Props) => {
       </WidgetAttention>
       <WidgetCompleted>
         <WidgetContent>
-          <WidgetSubHeader>Completed today</WidgetSubHeader>
+          <WidgetSubHeader>{COMPLETED_TODAY_TEXT_HEADER}</WidgetSubHeader>
           <WidgetHeader testId="client-completed-packages">
             {deliveredPackages}
           </WidgetHeader>

@@ -12,6 +12,7 @@ import { Container } from 'ui/common/components/layout/Container/Container';
 import { ContainerHeader } from 'ui/common/components/typography/ContainerHeader/ContainerHeader';
 
 import { useClientPackagesList } from 'ui/Clients/Admin/Client/components/ClientPackagesList/clientPackagesList.hooks';
+import { PRODUCTS_TEXT_HEADER } from 'ui/Clients/Admin/Client/components/ClientPackagesList/clientPackagesList.dictionary';
 
 export const ClientPackagesList = () => {
   const { packages, isPackageSelected, onRowClick } = useClientPackagesList();
@@ -37,7 +38,7 @@ export const ClientPackagesList = () => {
           {isPackageSelected(pack.id) && (
             <Container>
               <ContainerHeader className={styles.productsHeader}>
-                Products
+                {PRODUCTS_TEXT_HEADER}
               </ContainerHeader>
               <div className={styles.productsContent}>
                 {pack.products.map((product) => (

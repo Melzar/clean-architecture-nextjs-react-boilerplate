@@ -11,6 +11,7 @@ import { getPackageStatusIcon } from 'ui/Packages/Admin/packages.partials';
 import { Container } from 'ui/common/components/layout/Container/Container';
 import { ContainerHeader } from 'ui/common/components/typography/ContainerHeader/ContainerHeader';
 import { Package } from 'presentation/shared/Packages/models/Package';
+import { PRODUCTS_TEXT_HEADER } from 'ui/Packages/Admin/components/PackagesList/packagesList.dictionary';
 
 export const PackagesList = () => {
   const { packages, onRowClick, isPackageSelected } = usePackagesList();
@@ -36,7 +37,7 @@ export const PackagesList = () => {
           {isPackageSelected(pack.id) && (
             <Container>
               <ContainerHeader className={styles.productsHeader}>
-                Products
+                {PRODUCTS_TEXT_HEADER}
               </ContainerHeader>
               <div className={styles.productsContent}>
                 {pack.products.map((product) => (
